@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="100%" height="100%">
+  <defs>
+    <linearGradient id="suiteGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2c241d"/>
+      <stop offset="40%" stop-color="#46392f"/>
+      <stop offset="80%" stop-color="#28201a"/>
+      <stop offset="100%" stop-color="#191410"/>
+    </linearGradient>
+    <linearGradient id="windowGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#bba78d" stop-opacity="0.25"/>
+      <stop offset="50%" stop-color="#dfd2bf" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#a8957c" stop-opacity="0.2"/>
+    </linearGradient>
+    <linearGradient id="goldAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c5a982"/>
+      <stop offset="100%" stop-color="#9d835f"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Room Interior Background -->
+  <rect width="1600" height="900" fill="url(#suiteGrad)"/>
+
+  <!-- Balcony Glass Wall & View -->
+  <rect x="250" y="80" width="1100" height="700" fill="#202b28" opacity="0.6"/>
+  <rect x="280" y="100" width="1040" height="660" fill="url(#windowGlow)"/>
+
+  <!-- City & Skyline impression in distance -->
+  <rect x="320" y="240" width="80" height="260" fill="#7d7b73" opacity="0.35"/>
+  <rect x="420" y="190" width="110" height="310" fill="#696964" opacity="0.3"/>
+  <rect x="550" y="270" width="70" height="230" fill="#88857e" opacity="0.25"/>
+  <rect x="640" y="210" width="90" height="290" fill="#71706a" opacity="0.3"/>
+
+  <!-- Balcony foliage & terraces -->
+  <path d="M280 500 Q 550 470 950 510 L 1320 540 L 1320 760 L 280 760 Z" fill="#2a3528" opacity="0.7"/>
+  <path d="M300 560 Q 600 520 1000 550 L 1320 590 L 1320 760 L 300 760 Z" fill="#202a1e" opacity="0.8"/>
+
+  <!-- Window Frame Pillars -->
+  <rect x="250" y="80" width="22" height="700" fill="#1b1713"/>
+  <rect x="760" y="80" width="28" height="700" fill="#1e1a16"/>
+  <rect x="1140" y="80" width="26" height="700" fill="#1a1613"/>
+  <rect x="250" y="80" width="1100" height="24" fill="#1e1a16"/>
+
+  <!-- Interior Furniture Shapes: Sofa, Lounge chairs & table -->
+  <ellipse cx="880" cy="740" rx="280" ry="110" fill="#17120e" opacity="0.6"/>
+  <!-- Modern Sofa -->
+  <path d="M680 620 C 680 590, 710 570, 780 570 L 1120 570 C 1170 570, 1200 590, 1200 620 L 1220 730 L 660 730 Z" fill="#e2dacd" opacity="0.85"/>
+  <!-- Cushions -->
+  <path d="M720 600 Q 770 590 820 620 L 810 680 L 710 670 Z" fill="#8c7764" opacity="0.9"/>
+  <path d="M1020 600 Q 1070 590 1120 620 L 1110 680 L 1010 670 Z" fill="#b09b83" opacity="0.9"/>
+
+  <!-- Coffee Table & Champagne bucket -->
+  <ellipse cx="830" cy="735" rx="95" ry="32" fill="#eae4db"/>
+  <ellipse cx="830" cy="733" rx="90" ry="28" fill="#f5f1eb"/>
+  <rect x="818" y="670" width="24" height="34" fill="#a89a87" rx="3"/>
+  <ellipse cx="830" cy="670" rx="12" ry="4" fill="#d8cec1"/>
+
+  <!-- Armchair left -->
+  <path d="M440 640 C 440 610, 470 590, 530 590 L 610 605 L 630 740 L 410 735 Z" fill="#cfc5b6" opacity="0.9"/>
+
+  <!-- Bed edge on bottom right -->
+  <path d="M1020 680 L 1600 610 L 1600 900 L 980 900 Z" fill="#f2ede4"/>
+
+  <!-- Warm ambient lighting glow -->
+  <circle cx="830" cy="650" r="140" fill="#f3dfb9" opacity="0.12"/>
+  <circle cx="1090" cy="530" r="110" fill="#f3dfb9" opacity="0.15"/>
+
+  <!-- Center Badge Indicator -->
+  <g transform="translate(800, 450)" opacity="0.6">
+    <rect x="-160" y="-24" width="320" height="48" rx="24" fill="#1e1814" stroke="#c5a982" stroke-width="1.5"/>
+    <text x="0" y="6" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" fill="#DFC8A5" text-anchor="middle" letter-spacing="3" font-weight="600">
+      HERO IMAGE PLACEHOLDER
+    </text>
+  </g>
+</svg>

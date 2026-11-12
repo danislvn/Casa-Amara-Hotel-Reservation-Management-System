@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Your Stay | Casa Amara Boutique Hotel</title>
+  <meta name="description" content="Reserve your stay at Casa Amara Boutique Hotel. Choose dates, select your room, and complete your reservation.">
+  
+  <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css?v=2.2">
+</head>
+<body class="booking-page-body">
+
+  <!-- =========================================================================
+       1. Minimal Top Header with Close
+       ========================================================================= -->
+  <header class="booking-header">
+    <div class="booking-header-inner">
+      <a href="index.html" class="brand-logo" aria-label="Casa Amara Home">
+        <div class="logo-circle">CA</div>
+        <div class="logo-text">
+          <span class="logo-title">Casa Amara</span>
+          <span class="logo-subtitle">BOUTIQUE HOTEL</span>
+        </div>
+      </a>
+
+      <a href="javascript:history.back()" class="booking-close-link" id="closeBooking">Close</a>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       2. Stepper Progress Track
+       ========================================================================= -->
+  <div class="booking-stepper-wrapper">
+    <div class="booking-stepper-track" id="stepperTrack">
+      <div class="step-node active" data-step="1">
+        <div class="step-node-bubble">1</div>
+        <span class="step-node-label">Stay details</span>
+      </div>
+      <div class="step-node" data-step="2">
+        <div class="step-node-bubble">2</div>
+        <span class="step-node-label">Available rooms</span>
+      </div>
+      <div class="step-node" data-step="3">
+        <div class="step-node-bubble">3</div>
+        <span class="step-node-label">Guest information</span>
+      </div>
+      <div class="step-node" data-step="4">
+        <div class="step-node-bubble">4</div>
+        <span class="step-node-label">Review reservation</span>
+      </div>
+      <div class="step-node" data-step="5">
+        <div class="step-node-bubble">5</div>
+        <span class="step-node-label">Payment</span>
+      </div>
+      <div class="step-node" data-step="6">
+        <div class="step-node-bubble">6</div>
+        <span class="step-node-label">Confirmation</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       3. Dynamic Multi-Step Area
+       ========================================================================= -->
+  <main class="booking-content-area">
+
+    <!-- STEP 1: Stay Details -->
+    <section class="step-pane" id="step1">
+      <div class="step-header-box">
+        <span class="step-count-badge">STEP 1 OF 6</span>
+        <h1 class="step-title">When will you be joining us?</h1>
+        <p class="step-subtitle">
+          Choose your dates and group size to see rooms that can comfortably accommodate everyone.
+        </p>
+      </div>
+
+      <div class="booking-form-card" style="max-width: 680px; margin: 0 auto;">
+        <div class="form-row-2col">
+          <div class="booking-input-group">
+            <label class="booking-input-label" for="inCheckin">Check-in</label>
+            <div class="input-with-icon">
+              <input type="text" id="inCheckin" class="booking-input" value="10/27/2026" placeholder="MM/DD/YYYY">
+              <input type="date" id="inCheckinPicker" class="native-date-hidden" tabindex="-1" aria-hidden="true">
+              <button type="button" class="search-calendar-btn" id="btnPickInCheckin" aria-label="Open check-in calendar">
+                <svg class="input-icon-right" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="booking-input-group">
+            <label class="booking-input-label" for="inCheckout">Check-out</label>
+            <div class="input-with-icon">
+              <input type="text" id="inCheckout" class="booking-input" value="10/30/2026" placeholder="MM/DD/YYYY">
+              <input type="date" id="inCheckoutPicker" class="native-date-hidden" tabindex="-1" aria-hidden="true">
+              <button type="button" class="search-calendar-btn" id="btnPickInCheckout" aria-label="Open check-out calendar">
+                <svg class="input-icon-right" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="booking-input-group">
+          <label class="booking-input-label" for="inGuests">Guests</label>
+          <input type="number" id="inGuests" class="booking-input" value="2" min="1" max="6">
+          <p class="booking-field-note">
+            Enter your full party size. Results are filtered by each room type's configured capacity.
+          </p>
+        </div>
+
+        <button type="button" class="btn-primary" id="btnToStep2" style="width: 100%; padding: 0.85rem;">
+          Find available rooms &rarr;
+        </button>
+      </div>
+    </section>
+
+    <!-- STEP 2: Available Rooms -->
+    <section class="step-pane" id="step2" style="display: none;">
+      <div class="step-header-box">
+        <span class="step-count-badge">STEP 2 OF 6</span>
+        <h2 class="step-title">Available rooms for your stay.</h2>
+        <p class="step-subtitle" id="step2DateSummary">
+          Oct 27, 2026–Oct 30, 2026 · 2 guests
+        </p>
+      </div>
+
+      <div class="room-select-list">
+        <!-- Room 1: Deluxe Room -->
+        <div class="room-select-card selected" data-room-id="deluxe" data-room-name="Deluxe Room" data-room-price="8200" data-room-thumb="assets/images/deluxe-room.jpg" data-room-floor="1st Floor (Garden Wing)">
+          <div class="room-radio-circle">
+            <div class="room-radio-dot"></div>
+          </div>
+          <div class="room-select-thumb">
+            <img src="assets/images/deluxe-room.jpg" alt="Deluxe Room">
+          </div>
+          <div class="room-select-details">
+            <div class="room-select-top-meta">
+              <span class="room-select-tag">Deluxe room</span>
+              <span class="room-avail-badge"><span class="avail-dot"></span> 6 rooms available</span>
+            </div>
+            <h3 class="room-select-title">Deluxe Room</h3>
+            <p class="room-select-specs">Up to 2 guests · 1 King Bed · 1st Floor (Garden Wing) · Courtyard Garden</p>
+            
+            <div class="room-numbers-chooser">
+              <div class="room-numbers-chooser-header">
+                <span class="room-numbers-chooser-title">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-1.5 1.5L10 13l-4 4-2-2 4-4 7.5-7.5z"></path><circle cx="7.5" cy="16.5" r="1.5"></circle></svg>
+                  Choose room number:
+                </span>
+                <span class="room-selected-indicator" id="selInd-deluxe">Selected: Room 101</span>
+              </div>
+              <div class="room-pills-wrap" data-room-id="deluxe">
+                <button type="button" class="room-choice-pill active" data-room-num="101"><svg class="pill-key-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-1.5 1.5L10 13l-4 4-2-2 4-4 7.5-7.5z"></path><circle cx="7.5" cy="16.5" r="1.5"></circle></svg>Room 101</button>
+                <button type="button" class="room-choice-pill" data-room-num="102"><svg class="pill-key-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-1.5 1.5L10 13l-4 4-2-2 4-4 7.5-7.5z"></path><circle cx="7.5" cy="16.5" r="1.5"></circle></svg>Room 102</button>
+                <button type="button" class="room-choice-pill" data-room-num="103"><svg class="pill-key-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-1.5 1.5L10 13l-4 4-2-2 4-4 7.5-7.5z"></path><circle cx="7.5" cy="16.5" r="1.5"></circle></svg>Room 103</button>
+                <button type="button" class="room-choice-pill" data-room-num="104"><svg class="pill-key-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-1.5 1.5L10 13l-4 4-2-2 4-4 7.5-7.5z"></path><circle cx="7.5" cy="16.5" r="1.5"></circle></svg>Room 104</button>
+                <button type="button" class="room-choice-pill" data-room-num="105"><svg class="pill-key-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-1.5 1.5L10 13l-4 4-2-2 4-4 7.5-7.5z"></path><circle cx="7.5" cy="16.5" r="1.5"></circle></svg>Room 105</button>
+                <button type="button" class="room-choice-pill" data-room-num="106"><svg class="pill-key-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-1.5 1.5L10 13l-4 4-2-2 4-4 7.5-7.5z"></path><circle cx="7.5" cy="16.5" r="1.5"></circle></svg>Room 106</button>
+                <button type="button" class="room-choice-pill" data-room-num="107"><svg class="pill-key-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-1.5 1.5L10 13l-4 4-2-2 4-4 7.5-7.5z"></path><circle cx="7.5" cy="16.5" r="1.5"></circle></svg>Room 107</button>
+                <button type="button" class="room-choice-pill" data-room-num="108"><svg class="pill-key-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-1.5 1.5L10 13l-4 4-2-2 4-4 7.5-7.5z"></path><circle cx="7.5" cy="16.5" r="1.5"></circle></svg>Room 108</button>
+              </div>
+            </div>
+          </div>
+          <div class="room-select-price-box">
+            <div class="room-select-price">₱8,200 <span>/ night</span></div>
+          </div>
+        </div>
+
+        <!-- Room 2: Executive Room -->
+        <div class="room-select-card" data-room-id="executive" data-room-name="Executive Room" data-room-price="11500" data-room-thumb="assets/images/executive-room.jpg" data-room-floor="2nd Floor (Skyline Wing)">
+          <div class="room-radio-circle">
+            <div class="room-radio-dot"></div>
+          </div>
+          <div class="room-select-thumb">
+            <img src="assets/images/executive-room.jpg" alt="Executive Room">
+          </div>
+          <div class="room-select-details">
+            <div class="room-select-top-meta">
+              <span class="room-select-tag">Executive room</span>
+              <span class="room-avail-badge"><span class="avail-dot"></span> 4 rooms available</span>
+            </div>
+            <h3 class="room-select-title">Executive Room</h3>
+            <p class="room-select-specs">Up to 3 guests · 1 King Bed & Daybed · 2nd Floor (Skyline Wing) · City Skyline & Garden</p>
+            
+            <div class="room-numbers-chooser">
+              <div class="room-numbers-chooser-header">
+                <span class="room-numbers-chooser-title">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-1.5 1.5L10 13l-4 4-2-2 4-4 7.5-7.5z"></path><circle cx="7.5" cy="16.5" r="1.5"></circle></svg>
+                  Choose room number:
+                </span>
+                <span class="room-selected-indicator" id="selInd-executive">Selected: Room 201</span>
+              </div>
+              <div class="room-pills-wrap" data-room-id="executive">
+                <button type="button" class="room-choice-pill active" data-room-num="201"><svg class="pill-key-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-1.5 1.5L10 13l-4 4-2-2 4-4 7.5-7.5z"></path><circle cx="7.5" cy="16.5" r="1.5"></circle></svg>Room 201</button>
+                <button type="button" class="room-choice-pill" data-room-num="202"><svg class="pill-key-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-1.5 1.5L10 13l-4 4-2-2 4-4 7.5-7.5z"></path><circle cx="7.5" cy="16.5" r="1.5"></circle></svg>Room 202</button>
+                <button type="button" class="room-choice-pill" data-room-num="203"><svg class="pill-key-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-1.5 1.5L10 13l-4 4-2-2 4-4 7.5-7.5z"></path><circle cx="7.5" cy="16.5" r="1.5"></circle></svg>Room 203</button>
+                <button type="button" class="room-choice-pill" data-room-num="204"><svg class="pill-key-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-1.5 1.5L10 13l-4 4-2-2 4-4 7.5-7.5z"></path><circle cx="7.5" cy="16.5" r="1.5"></circle></svg>Room 204</button>
+                <button type="button" class="room-choice-pill" data-room-num="205"><svg class="pill-key-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-1.5 1.5L10 13l-4 4-2-2 4-4 7.5-7.5z"></path><circle cx="7.5" cy="16.5" r="1.5"></circle></svg>Room 205</button>
+              </div>
+            </div>
+          </div>
+          <div class="room-select-price-box">
+            <div class="room-select-price">₱11,500 <span>/ night</span></div>
+          </div>
+        </div>
+
+        <!-- Room 3: Family Room -->
+        <div class="room-select-card" data-room-id="family" data-room-name="Family Room" data-room-price="9800" data-room-thumb="assets/images/family-room.jpg" data-room-floor="Ground Floor (Poolside)">
+          <div class="room-radio-circle">
+            <div class="room-radio-dot"></div>
+          </div>
+          <div class="room-select-thumb">
+            <img src="assets/images/family-room.jpg" alt="Family Room">
+          </div>
+          <div class="room-select-details">
+            <div class="room-select-top-meta">
+              <span class="room-select-tag">Family room</span>
+              <span class="room-avail-badge"><span class="avail-dot"></span> 5 rooms available</span>
+            </div>
+            <h3 class="room-select-title">Family Room</h3>
+            <p class="room-select-specs">Up to 5 guests · 2 Queen Beds · Ground Floor (Poolside) · Courtyard & Pool</p>
+            
+            <div class="room-numbers-chooser">
+              <div class="room-numbers-chooser-header">
+                <span class="room-numbers-chooser-title">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-1.5 1.5L10 13l-4 4-2-2 4-4 7.5-7.5z"></path><circle cx="7.5" cy="16.5" r="1.5"></circle></svg>
+                  Choose room number:
+                </span>
+                <span class="room-selected-indicator" id="selInd-family">Selected: Room 109</span>
+              </div>
+              <div class="room-pills-wrap" data-room-id="family">
+                <button type="button" class="room-choice-pill active" data-room-num="109"><svg class="pill-key-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-1.5 1.5L10 13l-4 4-2-2 4-4 7.5-7.5z"></path><circle cx="7.5" cy="16.5" r="1.5"></circle></svg>Room 109</button>
+                <button type="button" class="room-choice-pill" data-room-num="110"><svg class="pill-key-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-1.5 1.5L10 13l-4 4-2-2 4-4 7.5-7.5z"></path><circle cx="7.5" cy="16.5" r="1.5"></circle></svg>Room 110</button>
+                <button type="button" class="room-choice-pill" data-room-num="111"><svg class="pill-key-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-1.5 1.5L10 13l-4 4-2-2 4-4 7.5-7.5z"></path><circle cx="7.5" cy="16.5" r="1.5"></circle></svg>Room 111</button>
+                <button type="button" class="room-choice-pill" data-room-num="112"><svg class="pill-key-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-1.5 1.5L10 13l-4 4-2-2 4-4 7.5-7.5z"></path><circle cx="7.5" cy="16.5" r="1.5"></circle></svg>Room 112</button>
+                <button type="button" class="room-choice-pill" data-room-num="113"><svg class="pill-key-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-1.5 1.5L10 13l-4 4-2-2 4-4 7.5-7.5z"></path><circle cx="7.5" cy="16.5" r="1.5"></circle></svg>Room 113</button>
+                <button type="button" class="room-choice-pill" data-room-num="114"><svg class="pill-key-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-1.5 1.5L10 13l-4 4-2-2 4-4 7.5-7.5z"></path><circle cx="7.5" cy="16.5" r="1.5"></circle></svg>Room 114</button>
+              </div>
+            </div>
+          </div>
+          <div class="room-select-price-box">
+            <div class="room-select-price">₱9,800 <span>/ night</span></div>
+          </div>
+        </div>
+
+        <!-- Room 4: Premium Suite -->
+        <div class="room-select-card" data-room-id="premium" data-room-name="Premium Suite" data-room-price="14500" data-room-thumb="assets/images/premium-suite.jpg" data-room-floor="3rd Floor (Penthouse Level)">
+          <div class="room-radio-circle">
+            <div class="room-radio-dot"></div>
+          </div>
+          <div class="room-select-thumb">
+            <img src="assets/images/premium-suite.jpg" alt="Premium Suite">
+          </div>
+          <div class="room-select-details">
+            <div class="room-select-top-meta">
+              <span class="room-select-tag">Premium suite</span>
+              <span class="room-avail-badge"><span class="avail-dot"></span> 2 rooms available</span>
+            </div>
+            <h3 class="room-select-title">Premium Suite</h3>
+            <p class="room-select-specs">Up to 5 guests · 1 King Bed & Sofa Bed · 3rd Floor (Penthouse Level) · Panoramic Ocean & Garden</p>
+            
+            <div class="room-numbers-chooser">
+              <div class="room-numbers-chooser-header">
+                <span class="room-numbers-chooser-title">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-1.5 1.5L10 13l-4 4-2-2 4-4 7.5-7.5z"></path><circle cx="7.5" cy="16.5" r="1.5"></circle></svg>
+                  Choose room number:
+                </span>
+                <span class="room-selected-indicator" id="selInd-premium">Selected: Room 301</span>
+              </div>
+              <div class="room-pills-wrap" data-room-id="premium">
+                <button type="button" class="room-choice-pill active" data-room-num="301"><svg class="pill-key-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-1.5 1.5L10 13l-4 4-2-2 4-4 7.5-7.5z"></path><circle cx="7.5" cy="16.5" r="1.5"></circle></svg>Room 301</button>
+                <button type="button" class="room-choice-pill" data-room-num="302"><svg class="pill-key-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-1.5 1.5L10 13l-4 4-2-2 4-4 7.5-7.5z"></path><circle cx="7.5" cy="16.5" r="1.5"></circle></svg>Room 302</button>
+                <button type="button" class="room-choice-pill" data-room-num="303"><svg class="pill-key-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-1.5 1.5L10 13l-4 4-2-2 4-4 7.5-7.5z"></path><circle cx="7.5" cy="16.5" r="1.5"></circle></svg>Room 303</button>
+              </div>
+            </div>
+          </div>
+          <div class="room-select-price-box">
+            <div class="room-select-price">₱14,500 <span>/ night</span></div>
+          </div>
+        </div>
+
+        <!-- Room 5: Master's Villa -->
+        <div class="room-select-card" data-room-id="master-s-villa" data-room-name="Master's Villa" data-room-price="9000" data-room-thumb="assets/images/executive-room.jpg" data-room-floor="2nd Floor">
+          <div class="room-radio-circle">
+            <div class="room-radio-dot"></div>
+          </div>
+          <div class="room-select-thumb">
+            <img src="assets/images/executive-room.jpg" alt="Master's Villa">
+          </div>
+          <div class="room-select-details">
+            <div class="room-select-top-meta">
+              <span class="room-select-tag">Villa luxury</span>
+              <span class="room-avail-badge"><span class="avail-dot"></span> 3 rooms available</span>
+            </div>
+            <h3 class="room-select-title">Master's Villa</h3>
+            <p class="room-select-specs">Up to 4 guests · 1 Bed, 2 Daybeds & 1 Sofa Bed · 2nd Floor · Balcony & Garden</p>
+            
+            <div class="room-numbers-chooser">
+              <div class="room-numbers-chooser-header">
+                <span class="room-numbers-chooser-title">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-1.5 1.5L10 13l-4 4-2-2 4-4 7.5-7.5z"></path><circle cx="7.5" cy="16.5" r="1.5"></circle></svg>
+                  Choose room number:
+                </span>
+                <span class="room-selected-indicator" id="selInd-master-s-villa">Selected: Room 206</span>
+              </div>
+              <div class="room-pills-wrap" data-room-id="master-s-villa">
+                <button type="button" class="room-choice-pill active" data-room-num="206"><svg class="pill-key-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-1.5 1.5L10 13l-4 4-2-2 4-4 7.5-7.5z"></path><circle cx="7.5" cy="16.5" r="1.5"></circle></svg>Room 206</button>
+                <button type="button" class="room-choice-pill" data-room-num="207"><svg class="pill-key-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-1.5 1.5L10 13l-4 4-2-2 4-4 7.5-7.5z"></path><circle cx="7.5" cy="16.5" r="1.5"></circle></svg>Room 207</button>
+                <button type="button" class="room-choice-pill" data-room-num="208"><svg class="pill-key-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-1.5 1.5L10 13l-4 4-2-2 4-4 7.5-7.5z"></path><circle cx="7.5" cy="16.5" r="1.5"></circle></svg>Room 208</button>
+              </div>
+            </div>
+          </div>
+          <div class="room-select-price-box">
+            <div class="room-select-price">₱9,000 <span>/ night</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="booking-actions-row">
+        <button type="button" class="btn-outline-dark" id="btnBackToStep1">Back</button>
+        <button type="button" class="btn-primary" id="btnToStep3">Select room &rarr;</button>
+      </div>
+    </section>
+
+    <!-- STEP 3: Guest Information -->
+    <section class="step-pane" id="step3" style="display: none;">
+      <div class="step-header-box">
+        <span class="step-count-badge">STEP 3 OF 6</span>
+        <h2 class="step-title">Tell us about yourself.</h2>
+        <p class="step-subtitle">
+          No account is required. We'll use these details for your reservation.
+        </p>
+      </div>
+
+      <div class="booking-form-card" style="max-width: 680px; margin: 0 auto;">
+        <div class="form-row-2col">
+          <div class="booking-input-group">
+            <label class="booking-input-label" for="inFirstName">First name</label>
+            <input type="text" id="inFirstName" class="booking-input" placeholder="e.g. Maria" autocomplete="given-name" pattern="[A-Za-z\s\.\-']+" title="Letters only" required>
+            <span class="field-error-msg" id="errFirstName">Please enter your first name</span>
+          </div>
+          <div class="booking-input-group">
+            <label class="booking-input-label" for="inLastName">Last name</label>
+            <input type="text" id="inLastName" class="booking-input" placeholder="e.g. Santos" autocomplete="family-name" pattern="[A-Za-z\s\.\-']+" title="Letters only" required>
+            <span class="field-error-msg" id="errLastName">Please enter your last name</span>
+          </div>
+        </div>
+
+        <div class="booking-input-group" style="margin-bottom: 1.5rem;">
+          <label class="booking-input-label" for="inEmail">Email address</label>
+          <input type="email" id="inEmail" class="booking-input" placeholder="e.g. maria.santos@gmail.com" autocomplete="email" required>
+          <span class="field-error-msg" id="errEmail">Please enter a valid email address</span>
+        </div>
+
+        <div class="booking-input-group" style="margin-bottom: 1.5rem;">
+          <label class="booking-input-label" for="inPhone">Phone number</label>
+          <input type="tel" id="inPhone" class="booking-input" placeholder="e.g. 0914 557 6321" maxlength="13" autocomplete="tel" required>
+          <span class="field-error-msg" id="errPhone">Please enter your contact phone number</span>
+        </div>
+
+        <div class="booking-input-group" style="margin-bottom: 2rem;">
+          <label class="booking-input-label" for="inRequests">
+            Special requests
+            <span class="optional-tag">Optional</span>
+          </label>
+          <textarea id="inRequests" class="booking-input" rows="4" placeholder="Dietary restrictions, arrival time preferences, or celebration notes..."></textarea>
+        </div>
+
+        <div class="booking-actions-row">
+          <button type="button" class="btn-outline-dark" id="btnBackToStep2">Back</button>
+          <button type="button" class="btn-primary" id="btnToStep4">Review reservation &rarr;</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 4: Review Reservation -->
+    <section class="step-pane" id="step4" style="display: none;">
+      <div class="step-header-box">
+        <span class="step-count-badge">STEP 4 OF 6</span>
+        <h2 class="step-title">Review your reservation.</h2>
+        <p class="step-subtitle">
+          Make sure your hotel stay and contact details are correct.
+        </p>
+      </div>
+
+      <div class="review-top-grid">
+        <!-- Room details -->
+        <div class="review-room-box">
+          <div class="review-room-thumb">
+            <img id="reviewRoomImg" src="assets/images/deluxe-room.jpg" alt="Selected Room">
+          </div>
+          <div class="review-room-info">
+            <span class="review-room-tag" id="reviewRoomTag">Deluxe room</span>
+            <h3 class="review-room-title" id="reviewRoomTitle">Deluxe Room</h3>
+            <div id="reviewRoomNumberContainer" style="margin-bottom: 0.6rem;">
+              <span class="review-room-pill-badge" id="reviewRoomNumberPill">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-1.5 1.5L10 13l-4 4-2-2 4-4 7.5-7.5z"></path><circle cx="7.5" cy="16.5" r="1.5"></circle></svg>
+                <span id="reviewRoomNumTxt">Room 101</span> · <span id="reviewRoomFloorTxt">1st Floor (Garden Wing)</span>
+              </span>
+            </div>
+            <div class="review-dates-row">
+              <div>
+                <span style="font-size: 0.65rem; display:block; letter-spacing:0.12em; text-transform:uppercase;">CHECK-IN</span>
+                <strong id="reviewCheckinTxt">Oct 27, 2026</strong>
+              </div>
+              <span style="font-size: 1.2rem; color:#A4988A;">&mdash;</span>
+              <div>
+                <span style="font-size: 0.65rem; display:block; letter-spacing:0.12em; text-transform:uppercase;">CHECK-OUT</span>
+                <strong id="reviewCheckoutTxt">Oct 30, 2026</strong>
+              </div>
+            </div>
+            <p class="review-room-bottom-meta" id="reviewStayMeta">
+              3 nights · 2 guests · 1 room
+            </p>
+          </div>
+        </div>
+
+        <!-- Price summary -->
+        <div class="review-price-summary-box">
+          <div>
+            <h3 class="review-price-title">Price summary</h3>
+            <div class="price-summary-row">
+              <span id="priceFormulaTxt">₱8,200 × 3 nights</span>
+              <span id="priceSubtotalTxt">₱24,600</span>
+            </div>
+            <div class="price-summary-row">
+              <span>Taxes &amp; service fees</span>
+              <span id="priceTaxTxt">₱2,952</span>
+            </div>
+          </div>
+          <div>
+            <div class="price-summary-divider"></div>
+            <div class="price-total-row">
+              <span>Total</span>
+              <span id="priceTotalTxt">₱27,552</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Guest summary -->
+      <div class="review-guest-box">
+        <div>
+          <div class="review-guest-item-label">GUEST</div>
+          <div class="review-guest-item-val" id="reviewGuestName">John Doe</div>
+        </div>
+        <div>
+          <div class="review-guest-item-label">EMAIL</div>
+          <div class="review-guest-item-val" id="reviewGuestEmail">guest@gmail.com</div>
+        </div>
+        <div>
+          <div class="review-guest-item-label">PHONE</div>
+          <div class="review-guest-item-val" id="reviewGuestPhone">+63 917 123 4567</div>
+        </div>
+      </div>
+
+      <div class="booking-actions-row" style="margin-top: 2.25rem;">
+        <button type="button" class="btn-outline-dark" id="btnBackToStep3">Back</button>
+        <button type="button" class="btn-primary" id="btnToStep5">Continue to payment &rarr;</button>
+      </div>
+    </section>
+
+    <!-- STEP 5: Payment -->
+    <section class="step-pane" id="step5" style="display: none;">
+      <div class="step-header-box">
+        <span class="step-count-badge">STEP 5 OF 6</span>
+        <h2 class="step-title">Complete your reservation.</h2>
+      </div>
+
+      <div class="payment-grid">
+        <!-- Left: Payment options -->
+        <div>
+          <div class="payment-methods-stack">
+            <!-- Option 1: Card deposit -->
+            <div class="payment-option-card selected" data-pay-method="card">
+              <div class="room-radio-circle">
+                <div class="room-radio-dot" style="opacity: 1;"></div>
+              </div>
+              <div class="ca-badge-square">CA</div>
+              <div>
+                <h4 class="payment-option-title">Card deposit</h4>
+                <p class="payment-option-subtitle" id="cardDepositSub">Simulated 30% deposit of ₱8,266</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card inputs -->
+          <div class="card-inputs-box" id="cardInputsContainer">
+            <div class="booking-input-group" style="margin-bottom: 1.25rem;">
+              <label class="booking-input-label" for="inCardNum">Card number</label>
+              <input type="text" id="inCardNum" class="booking-input" placeholder="e.g. 0000 0000 0000 0000" maxlength="19" autocomplete="cc-number" required>
+              <span class="field-error-msg" id="errCardNum">Card number is required</span>
+            </div>
+
+            <div class="form-row-2col" style="margin-bottom: 0;">
+              <div class="booking-input-group">
+                <label class="booking-input-label" for="inExpiry">Expiry</label>
+                <input type="text" id="inExpiry" class="booking-input" placeholder="e.g. MM/YY" maxlength="5" autocomplete="cc-exp" required>
+                <span class="field-error-msg" id="errExpiry">Expiry date is required</span>
+              </div>
+              <div class="booking-input-group">
+                <label class="booking-input-label" for="inCvv">CVV</label>
+                <input type="text" id="inCvv" class="booking-input" placeholder="e.g. 123" maxlength="4" autocomplete="cc-csc" required>
+                <span class="field-error-msg" id="errCvv">CVV is required</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Your stay summary -->
+        <div>
+          <div class="review-price-summary-box" style="height: auto;">
+            <div>
+              <h3 class="review-price-title">Your stay</h3>
+              <div class="price-summary-row">
+                <span id="payStayRoomTitle">Deluxe Room</span>
+                <span id="payStaySubtotal">₱24,600</span>
+              </div>
+              <p style="font-size: 0.76rem; color: #695F54; margin-bottom: 0.75rem;" id="payStayDates">
+                Oct 27, 2026–Oct 30, 2026 · 3 nights
+              </p>
+              <div class="price-summary-row">
+                <span>Taxes &amp; fees</span>
+                <span id="payStayTax">₱2,952</span>
+              </div>
+              <div class="price-summary-divider"></div>
+              <div class="price-total-row" style="margin-bottom: 1.5rem;">
+                <span>Total</span>
+                <span id="payStayTotal">₱27,552</span>
+              </div>
+            </div>
+
+            <button type="button" class="btn-primary" id="btnConfirmBooking" style="width: 100%; padding: 0.85rem; font-size: 0.9rem;">
+              Request Reservation
+            </button>
+            <p class="simulation-note">
+              Simulated payment only. No real funds are collected.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="booking-actions-row" style="margin-top: 2rem;">
+        <button type="button" class="btn-outline-dark" id="btnBackToStep4">Back</button>
+      </div>
+    </section>
+
+    <!-- STEP 6: Confirmation Screen -->
+    <section class="step-pane" id="step6" style="display: none;">
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <div class="conf-checkmark-circle">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+
+        <span class="step-count-badge">RESERVATION REQUEST SUBMITTED</span>
+        <h1 class="step-title" style="font-size: clamp(2.4rem, 4.5vw, 3.5rem); line-height: 1.15; margin-bottom: 1.25rem;">
+          Reservation Request<br>Submitted Successfully!
+        </h1>
+        <p class="step-subtitle" style="max-width: 620px; margin: 0 auto 1.5rem;" id="confMessageSubtitle">
+          We've recorded your reservation request and sent an acknowledgement to <span id="confEmailSpan" style="color: var(--ca-charcoal); font-weight: 500;">guest@gmail.com</span>.
+        </p>
+
+        <!-- Status Notice Box -->
+        <div style="max-width: 580px; margin: 0 auto 2.5rem; background: #FFFBEB; border: 1px solid #FCD34D; border-radius: 8px; padding: 1.1rem 1.35rem; text-align: left; display: flex; gap: 0.85rem; align-items: flex-start;">
+          <span style="font-size: 1.35rem; line-height: 1;"></span>
+          <div style="font-size: 0.86rem; color: #78350F; line-height: 1.55;">
+            <strong>Awaiting Staff Approval:</strong> Your booking is <strong>not yet confirmed</strong>. Our hotel team is currently reviewing room availability and scheduling. You will receive an official confirmation email once approved.
+          </div>
+        </div>
+      </div>
+
+      <!-- Dark Reference Banner -->
+      <div class="conf-ref-banner">
+        <div class="conf-ref-tag">BOOKING REFERENCE</div>
+        <div class="conf-ref-code" id="confBookingRefCode">CA-6COZNS-5OJ</div>
+        <div class="conf-ref-hint">
+          Use this with <span id="confEmailHintSpan" style="color: #DFC8A5;">guest@gmail.com</span> to retrieve your reservation.
+        </div>
+      </div>
+
+      <!-- 4-Column Details Bar -->
+      <div class="conf-details-bar">
+        <!-- Column 1: Guest -->
+        <div class="conf-details-col">
+          <span class="conf-col-label">GUEST</span>
+          <span class="conf-col-val-primary" id="confColGuest">John Doe</span>
+          <span class="conf-col-val-secondary" id="confColParty">2 guests</span>
+        </div>
+
+        <!-- Column 2: Stay -->
+        <div class="conf-details-col">
+          <span class="conf-col-label">STAY</span>
+          <span class="conf-col-val-primary" id="confColCheckin">Oct 27, 2026</span>
+          <span class="conf-col-val-secondary" id="confColCheckout">to Oct 30, 2026</span>
+        </div>
+
+        <!-- Column 3: Room -->
+        <div class="conf-details-col">
+          <span class="conf-col-label">ROOM</span>
+          <span class="conf-col-val-primary" id="confColRoom">Deluxe Room</span>
+          <span class="conf-col-val-secondary" id="confColNights">3 nights</span>
+        </div>
+
+        <!-- Column 4: Status -->
+        <div class="conf-details-col">
+          <span class="conf-col-label">STATUS</span>
+          <span class="conf-col-val-primary" id="confColPayStatus" style="color: #B45309;">Pending Approval</span>
+          <span class="conf-col-val-secondary" id="confColPayAmount">Awaiting hotel review</span>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <a href="index.html" class="btn-primary" style="padding: 0.85rem 2.25rem;">
+          Return to hotel website
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- OTP Verification Modal Dialog -->
+  <div class="ca-modal-backdrop" id="otpModalBackdrop" style="display: none;">
+    <div class="ca-modal-card" style="max-width: 460px; text-align: center;">
+      <div class="otp-icon-circle">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+      </div>
+
+      <span class="step-count-badge" style="margin-bottom: 0.4rem;">SECURITY VERIFICATION</span>
+      <h2 style="font-family: var(--font-serif); font-size: 1.65rem; color: var(--ca-espresso); margin: 0 0 0.5rem 0;">Verify Your Email</h2>
+      <p style="font-size: 0.86rem; color: var(--ca-text-muted); line-height: 1.5; margin: 0 0 1.25rem 0;">
+        We sent a 6-digit verification code to <strong id="otpRecipientEmail" style="color: var(--ca-charcoal); word-break: break-all;"></strong>. Enter the code below to submit your reservation request.
+      </p>
+
+      <div class="otp-inputs-wrapper" style="margin-bottom: 1.25rem;">
+        <input type="text" id="otpDigitInput" class="booking-input otp-code-field" maxlength="6" placeholder="000000" autocomplete="one-time-code" inputmode="numeric" pattern="[0-9]*">
+        <span class="field-error-msg" id="otpErrorMsg" style="text-align: center; margin-top: 0.5rem;"></span>
+      </div>
+
+      <div class="otp-status-row" style="display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: var(--ca-text-muted); margin-bottom: 1.5rem;">
+        <span id="otpCountdownTimer">Expires in: <strong>05:00</strong></span>
+        <button type="button" id="btnResendOtp" class="btn-text-link" disabled style="background: none; border: none; color: var(--ca-gold); cursor: pointer; font-size: 0.8rem; font-weight: 600; text-decoration: underline; padding: 0;">
+          Resend Code (60s)
+        </button>
+      </div>
+
+      <div style="display: flex; gap: 0.75rem;">
+        <button type="button" class="btn-outline-dark" id="btnCancelOtp" style="flex: 1; padding: 0.8rem;">Cancel</button>
+        <button type="button" class="btn-primary" id="btnVerifyOtp" style="flex: 2; padding: 0.8rem;">Verify &amp; Request</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Booking Flow Logic -->
+  <script src="js/booking.js"></script>
+</body>
+</html>

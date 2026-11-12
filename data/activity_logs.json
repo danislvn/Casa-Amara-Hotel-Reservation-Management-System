@@ -1,0 +1,982 @@
+[
+  {
+    "id": 98,
+    "date_time": "Nov 11, 2026, 1:02 PM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Database Restored",
+    "affected_record": "SQL Database",
+    "description": "Casa Amara Manager restored database from \"pre_restore_backup_casa_amara_db_2026-11-11T05-01-07-127Z.sql\". Pre-restoration safety snapshot saved as \"pre_restore_backup_casa_amara_db_2026-11-11T05-02-10-449Z.sql\". Tables restored: activity_logs, reservations, rooms, users.",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 97,
+    "date_time": "Nov 11, 2026, 1:01 PM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Database Restored",
+    "affected_record": "SQL Database",
+    "description": "Casa Amara Manager restored database from \"pre_restore_backup_casa_amara_db_2026-11-11T04-15-53-272Z.sql\". Pre-restoration safety snapshot saved as \"pre_restore_backup_casa_amara_db_2026-11-11T05-01-07-127Z.sql\". Tables restored: activity_logs, reservations, users.",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 96,
+    "date_time": "Nov 11, 2026, 12:57 PM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Database Restored",
+    "affected_record": "SQL Database",
+    "description": "Casa Amara Manager restored database from \"foreign_backup.sql\". Pre-restoration safety snapshot saved as \"pre_restore_backup_casa_amara_db_2026-11-11T04-57-14-986Z.sql\". Tables restored: activity_logs, reservations, rooms, users.",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 95,
+    "date_time": "Nov 11, 2026, 12:57 PM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Database Restored",
+    "affected_record": "SQL Database",
+    "description": "Casa Amara Manager restored database from \"pre_restore_backup_casa_amara_db_2026-11-11T01-01-18-499Z.sql\". Pre-restoration safety snapshot saved as \"pre_restore_backup_casa_amara_db_2026-11-11T04-57-14-471Z.sql\". Tables restored: activity_logs, reservations, rooms, users.",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 94,
+    "date_time": "Nov 11, 2026, 12:57 PM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Database Restored",
+    "affected_record": "SQL Database",
+    "description": "Casa Amara Manager restored database from \"pre_restore_backup_casa_amara_db_2026-11-11T01-01-18-499Z.sql\". Pre-restoration safety snapshot saved as \"pre_restore_backup_casa_amara_db_2026-11-11T04-57-14-071Z.sql\". Tables restored: activity_logs, reservations, rooms, users.",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 93,
+    "date_time": "Nov 11, 2026, 12:57 PM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Database Backup Downloaded",
+    "affected_record": "SQL Database",
+    "description": "Casa Amara Manager downloaded live SQL database backup (casa_amara_db_backup_2026-11-11.sql).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 92,
+    "date_time": "Nov 11, 2026, 12:16 PM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Database Restore Error",
+    "affected_record": "SQL Database",
+    "description": "Restoration from \"pre_restore_backup_casa_amara_db_2026-11-11T01-01-18-499Z.sql\" encountered an error: Referencing column 'room_type_id' and referenced column 'id' in foreign key constraint 'reservations_ibfk_1' are incompatible.. Pre-restoration safety backup is preserved as \"pre_restore_backup_casa_amara_db_2026-11-11T04-16-03-387Z.sql\".",
+    "outcome": "FAILED"
+  },
+  {
+    "id": 91,
+    "date_time": "Nov 11, 2026, 12:15 PM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Database Restore Error",
+    "affected_record": "SQL Database",
+    "description": "Restoration from \"pre_restore_backup_casa_amara_db_2026-11-11T01-01-18-499Z.sql\" encountered an error: Referencing column 'room_type_id' and referenced column 'id' in foreign key constraint 'reservations_ibfk_1' are incompatible.. Pre-restoration safety backup is preserved as \"pre_restore_backup_casa_amara_db_2026-11-11T04-15-53-272Z.sql\".",
+    "outcome": "FAILED"
+  },
+  {
+    "id": 90,
+    "date_time": "Nov 11, 2026, 12:15 PM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Database Restored",
+    "affected_record": "SQL Database",
+    "description": "Casa Amara Manager restored database from \"casa_amara_db_backup_2026-11-11 (2).sql\". Pre-restoration safety snapshot saved as \"pre_restore_backup_casa_amara_db_2026-11-11T04-15-24-903Z.sql\".",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 89,
+    "date_time": "Nov 11, 2026, 12:15 PM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Database Backup Downloaded",
+    "affected_record": "SQL Database",
+    "description": "Casa Amara Manager downloaded live SQL database backup (casa_amara_db_backup_2026-11-11.sql).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 88,
+    "date_time": "Nov 11, 2026, 12:14 PM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Database Restore Error",
+    "affected_record": "SQL Database",
+    "description": "Restoration from \"casa_amara_db_backup_2026-11-11.sql\" encountered an error: Referencing column 'room_type_id' and referenced column 'id' in foreign key constraint 'reservations_ibfk_1' are incompatible.. Pre-restoration safety backup is preserved as \"pre_restore_backup_casa_amara_db_2026-11-11T04-14-56-215Z.sql\".",
+    "outcome": "FAILED"
+  },
+  {
+    "id": 87,
+    "date_time": "Nov 11, 2026, 12:14 PM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Database Restore Error",
+    "affected_record": "SQL Database",
+    "description": "Restoration from \"casa_amara_db_backup_2026-11-11 (1).sql\" encountered an error: Referencing column 'room_type_id' and referenced column 'id' in foreign key constraint 'reservations_ibfk_1' are incompatible.. Pre-restoration safety backup is preserved as \"pre_restore_backup_casa_amara_db_2026-11-11T04-14-32-576Z.sql\".",
+    "outcome": "FAILED"
+  },
+  {
+    "id": 86,
+    "date_time": "Nov 11, 2026, 12:07 PM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Database Backup Downloaded",
+    "affected_record": "SQL Database",
+    "description": "Casa Amara Manager downloaded live SQL database backup (casa_amara_db_backup_2026-11-11.sql).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 85,
+    "date_time": "Nov 11, 2026, 12:05 PM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Room created",
+    "affected_record": "Rooms Catalog",
+    "description": "Published room \"hoy\" (304).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 84,
+    "date_time": "Nov 11, 2026, 9:01 AM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Database Restored",
+    "affected_record": "SQL Database",
+    "description": "Casa Amara Manager restored database from \"casa_amara_db_backup_2026-11-11.sql\". Pre-restoration safety snapshot saved as \"pre_restore_backup_casa_amara_db_2026-11-11T01-01-18-499Z.sql\".",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 83,
+    "date_time": "Nov 11, 2026, 9:00 AM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Staff login",
+    "affected_record": "Authentication",
+    "description": "Casa Amara Manager signed in.",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 82,
+    "date_time": "Nov 11, 2026, 8:59 AM",
+    "user_name": "Casa Amara Administrator",
+    "user_email": "admin@casaamara.ph",
+    "action": "Database Backup Downloaded",
+    "affected_record": "SQL Database",
+    "description": "Casa Amara Administrator downloaded live SQL database backup (casa_amara_db_backup_2026-11-11.sql).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 81,
+    "date_time": "Nov 11, 2026, 8:58 AM",
+    "user_name": "Hotel Admin",
+    "user_email": "admin@casaamara.ph",
+    "action": "Reservation approved",
+    "affected_record": "Reservations",
+    "description": "Approved reservation CA-AV9TAP-9L2 for Rolan Sotomayor.",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 80,
+    "date_time": "Nov 11, 2026, 8:58 AM",
+    "user_name": "Front Desk Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Room updated",
+    "affected_record": "Rooms Catalog",
+    "description": "Updated room \"Deluxe Room\" (101 - 108).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 79,
+    "date_time": "Nov 11, 2026, 8:57 AM",
+    "user_name": "Front Desk Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Room updated",
+    "affected_record": "Rooms Catalog",
+    "description": "Updated room \"Deluxe Room\" (101 - 108).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 78,
+    "date_time": "Nov 11, 2026, 8:57 AM",
+    "user_name": "Casa Amara Administrator",
+    "user_email": "admin@casaamara.ph",
+    "action": "Staff login",
+    "affected_record": "Authentication",
+    "description": "Casa Amara Administrator signed in.",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 77,
+    "date_time": "Nov 11, 2026, 8:56 AM",
+    "user_name": "Rolan Sotomayor",
+    "user_email": "movie03112004@gmail.com",
+    "action": "Reservation created",
+    "affected_record": "Reservations",
+    "description": "Created reservation CA-AV9TAP-9L2 for Rolan Sotomayor (Room 104).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 76,
+    "date_time": "Nov 10, 2026, 10:56 PM",
+    "user_name": "Hotel Admin",
+    "user_email": "admin@casaamara.ph",
+    "action": "Reservation approved",
+    "affected_record": "Reservations",
+    "description": "Approved reservation CA-K1KMHD-DHX for Kean Gabriel.",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 75,
+    "date_time": "Nov 10, 2026, 10:55 PM",
+    "user_name": "Kean Gabriel",
+    "user_email": "daniellasalvahan51@gmail.com",
+    "action": "Reservation created",
+    "affected_record": "Reservations",
+    "description": "Created reservation CA-K1KMHD-DHX for Kean Gabriel (Room 1001).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 74,
+    "date_time": "Nov 10, 2026, 10:52 PM",
+    "user_name": "Casa Amara Staff",
+    "user_email": "manager@casaamara.ph",
+    "action": "Reservation cancelled",
+    "affected_record": "Reservations",
+    "description": "Cancelled reservation CA-HVYUG0-1ZO.",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 73,
+    "date_time": "Nov 10, 2026, 10:52 PM",
+    "user_name": "Casa Amara Staff",
+    "user_email": "manager@casaamara.ph",
+    "action": "Reservation cancelled",
+    "affected_record": "Reservations",
+    "description": "Cancelled reservation CA-FI2MT8-AFN.",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 72,
+    "date_time": "Nov 9, 2026, 10:45 PM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Staff login",
+    "affected_record": "Authentication",
+    "description": "Casa Amara Manager signed in.",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 71,
+    "date_time": "Nov 9, 2026, 10:40 PM",
+    "user_name": "Casa Amara Administrator",
+    "user_email": "admin@casaamara.ph",
+    "action": "Staff login",
+    "affected_record": "Authentication",
+    "description": "Casa Amara Administrator signed in.",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 70,
+    "date_time": "Nov 8, 2026, 10:54 PM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Database Backup Downloaded",
+    "affected_record": "SQL Database",
+    "description": "Casa Amara Manager downloaded live SQL database backup (casa_amara_db_backup_2026-11-08.sql).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 69,
+    "date_time": "Nov 8, 2026, 10:54 PM",
+    "user_name": "manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Staff login",
+    "affected_record": "Authentication",
+    "description": "Failed login attempt for user \"manager\".",
+    "outcome": "FAILED"
+  },
+  {
+    "id": 68,
+    "date_time": "Nov 8, 2026, 10:54 PM",
+    "user_name": "Casa Amara Administrator",
+    "user_email": "admin@casaamara.ph",
+    "action": "Staff login",
+    "affected_record": "Authentication",
+    "description": "Casa Amara Administrator signed in.",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 67,
+    "date_time": "Nov 8, 2026, 10:54 PM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Staff login",
+    "affected_record": "Authentication",
+    "description": "Casa Amara Manager signed in.",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 66,
+    "date_time": "Nov 8, 2026, 10:53 PM",
+    "user_name": "manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Staff login",
+    "affected_record": "Authentication",
+    "description": "Failed login attempt for user \"manager\".",
+    "outcome": "FAILED"
+  },
+  {
+    "id": 65,
+    "date_time": "Nov 8, 2026, 10:53 PM",
+    "user_name": "Casa Amara Administrator",
+    "user_email": "admin@casaamara.ph",
+    "action": "Staff login",
+    "affected_record": "Authentication",
+    "description": "Casa Amara Administrator signed in.",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 64,
+    "date_time": "Nov 8, 2026, 10:53 PM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Staff login",
+    "affected_record": "Authentication",
+    "description": "Casa Amara Manager signed in.",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 63,
+    "date_time": "Nov 7, 2026, 6:51 PM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Room updated",
+    "affected_record": "Rooms Catalog",
+    "description": "Updated room \"Executive Room\" (701 - 705).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 62,
+    "date_time": "Nov 7, 2026, 6:51 PM",
+    "user_name": "Front Desk Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Room updated",
+    "affected_record": "Rooms Catalog",
+    "description": "Updated room \"Deluxe Room\" (101 - 108).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 61,
+    "date_time": "Nov 7, 2026, 6:51 PM",
+    "user_name": "Front Desk Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Room updated",
+    "affected_record": "Rooms Catalog",
+    "description": "Updated room \"Deluxe Room\" (101 - 108).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 60,
+    "date_time": "Nov 7, 2026, 6:50 PM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Room updated",
+    "affected_record": "Rooms Catalog",
+    "description": "Updated room \"Executive Room\" (701 - 705).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 59,
+    "date_time": "Nov 7, 2026, 6:50 PM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Room updated",
+    "affected_record": "Rooms Catalog",
+    "description": "Updated room \"Executive Room\" (701 - 705).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 58,
+    "date_time": "Nov 7, 2026, 6:49 PM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Room updated",
+    "affected_record": "Rooms Catalog",
+    "description": "Updated room \"Executive Room\" (701 - 705).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 57,
+    "date_time": "Nov 7, 2026, 6:39 PM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Room updated",
+    "affected_record": "Rooms Catalog",
+    "description": "Updated room \"Executive Garden Suite\" (301-305).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 56,
+    "date_time": "Nov 7, 2026, 6:38 PM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Room updated",
+    "affected_record": "Rooms Catalog",
+    "description": "Updated room \"Master's Villa\" (601 - 608).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 55,
+    "date_time": "Nov 7, 2026, 6:37 PM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Room updated",
+    "affected_record": "Rooms Catalog",
+    "description": "Updated room \"Master's Villa\" (601 - 608).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 54,
+    "date_time": "Nov 7, 2026, 6:37 PM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Room updated",
+    "affected_record": "Rooms Catalog",
+    "description": "Updated room \"Executive Room\" (701 - 705).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 53,
+    "date_time": "Nov 7, 2026, 6:36 PM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Room updated",
+    "affected_record": "Rooms Catalog",
+    "description": "Updated room \"Executive Room\" (201 - 205).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 52,
+    "date_time": "Nov 7, 2026, 6:36 PM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Room updated",
+    "affected_record": "Rooms Catalog",
+    "description": "Updated room \"Executive Garden Suite\" (304).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 51,
+    "date_time": "Nov 7, 2026, 6:35 PM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Room updated",
+    "affected_record": "Rooms Catalog",
+    "description": "Updated room \"Master's Villa\" (206 - 210).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 50,
+    "date_time": "Nov 7, 2026, 6:34 PM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Room updated",
+    "affected_record": "Rooms Catalog",
+    "description": "Updated room \"Family Room\" (401 - 408).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 49,
+    "date_time": "Nov 7, 2026, 6:29 PM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Room updated",
+    "affected_record": "Rooms Catalog",
+    "description": "Updated room \"Premium Suite\" (2001-2003).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 48,
+    "date_time": "Nov 7, 2026, 6:29 PM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Room updated",
+    "affected_record": "Rooms Catalog",
+    "description": "Updated room \"Premium Suite\" (301 - 303).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 47,
+    "date_time": "Nov 7, 2026, 6:05 PM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Staff login",
+    "affected_record": "Authentication",
+    "description": "Casa Amara Manager signed in.",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 46,
+    "date_time": "Nov 7, 2026, 4:36 PM",
+    "user_name": "Casa Amara Administrator",
+    "user_email": "admin@casaamara.ph",
+    "action": "Staff login",
+    "affected_record": "Authentication",
+    "description": "Casa Amara Administrator signed in.",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 45,
+    "date_time": "Nov 7, 2026, 4:35 PM",
+    "user_name": "Casa Amara Staff",
+    "user_email": "manager@casaamara.ph",
+    "action": "Reservation cancelled",
+    "affected_record": "Reservations",
+    "description": "Cancelled reservation CA-PGY0H4-4HX.",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 44,
+    "date_time": "Nov 7, 2026, 4:31 PM",
+    "user_name": "Hotel Admin",
+    "user_email": "admin@casaamara.ph",
+    "action": "Reservation approved",
+    "affected_record": "Reservations",
+    "description": "Approved reservation CA-FI2MT8-AFN for Kath Bullecer.",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 43,
+    "date_time": "Nov 7, 2026, 4:27 PM",
+    "user_name": "Kath Bullecer",
+    "user_email": "daniellasalvahan05@gmail.com",
+    "action": "Reservation created",
+    "affected_record": "Reservations",
+    "description": "Created reservation CA-FI2MT8-AFN for Kath Bullecer (Room 102).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 42,
+    "date_time": "Nov 7, 2026, 1:00 AM",
+    "user_name": "Hotel Admin",
+    "user_email": "admin@casaamara.ph",
+    "action": "Reservation approved",
+    "affected_record": "Reservations",
+    "description": "Approved reservation CA-PGY0H4-4HX for Rene Can't swim.",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 41,
+    "date_time": "Nov 7, 2026, 12:53 AM",
+    "user_name": "Rene Can't swim",
+    "user_email": "daniellasalvahan51@gmail.com",
+    "action": "Reservation created",
+    "affected_record": "Reservations",
+    "description": "Created reservation CA-PGY0H4-4HX for Rene Can't swim (Room 109).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 40,
+    "date_time": "Nov 6, 2026, 11:37 PM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Room updated",
+    "affected_record": "Rooms Catalog",
+    "description": "Updated room \"Executive Garden Suite\" (304).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 39,
+    "date_time": "Nov 6, 2026, 11:36 PM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Room updated",
+    "affected_record": "Rooms Catalog",
+    "description": "Updated room \"Executive Garden Suite\" (302).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 38,
+    "date_time": "Nov 5, 2026, 11:06 AM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Database Restored",
+    "affected_record": "SQL Database",
+    "description": "Casa Amara Manager restored database from \"casa_amara_db_backup_2026-11-05 (4).sql\". Pre-restoration safety snapshot saved as \"pre_restore_backup_casa_amara_db_2026-11-05T03-06-43-346Z.sql\".",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 37,
+    "date_time": "Nov 5, 2026, 11:06 AM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Database Restored",
+    "affected_record": "SQL Database",
+    "description": "Casa Amara Manager restored database from \"casa_amara_db_backup_2026-11-05 (5).sql\". Pre-restoration safety snapshot saved as \"pre_restore_backup_casa_amara_db_2026-11-05T03-06-20-620Z.sql\".",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 36,
+    "date_time": "Nov 5, 2026, 11:05 AM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Staff login",
+    "affected_record": "Authentication",
+    "description": "Casa Amara Manager signed in.",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 35,
+    "date_time": "Nov 5, 2026, 11:04 AM",
+    "user_name": "Casa Amara Administrator",
+    "user_email": "admin@casaamara.ph",
+    "action": "Staff login",
+    "affected_record": "Authentication",
+    "description": "Casa Amara Administrator signed in.",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 34,
+    "date_time": "Nov 5, 2026, 11:02 AM",
+    "user_name": "Hotel Admin",
+    "user_email": "admin@casaamara.ph",
+    "action": "Reservation approved",
+    "affected_record": "Reservations",
+    "description": "Approved reservation CA-6HB7YV-DVQ for wew wwww.",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 33,
+    "date_time": "Nov 5, 2026, 11:01 AM",
+    "user_name": "wew wwww",
+    "user_email": "jencelsofer@gmail.com",
+    "action": "Reservation created",
+    "affected_record": "Reservations",
+    "description": "Created reservation CA-6HB7YV-DVQ for wew wwww (Room 207).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 32,
+    "date_time": "Nov 5, 2026, 10:58 AM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Room updated",
+    "affected_record": "Rooms Catalog",
+    "description": "Updated room \"Lebron\" (lebron).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 31,
+    "date_time": "Nov 5, 2026, 10:57 AM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Room updated",
+    "affected_record": "Rooms Catalog",
+    "description": "Updated room \"Lebron\" (lebron).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 30,
+    "date_time": "Nov 5, 2026, 10:57 AM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Room created",
+    "affected_record": "Rooms Catalog",
+    "description": "Published room \"Lebron\" (lebron).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 29,
+    "date_time": "Nov 5, 2026, 10:54 AM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Database Backup Downloaded",
+    "affected_record": "SQL Database",
+    "description": "Casa Amara Manager downloaded live SQL database backup (casa_amara_db_backup_2026-11-05.sql).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 28,
+    "date_time": "Nov 5, 2026, 10:53 AM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Room updated",
+    "affected_record": "Rooms Catalog",
+    "description": "Updated room \"Family Roommmmmmmmmmmmmmmmmmm\" (109 - 114).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 27,
+    "date_time": "Nov 5, 2026, 10:52 AM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Room created",
+    "affected_record": "Rooms Catalog",
+    "description": "Published room \"hahaha\" (dasadadsadssa).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 26,
+    "date_time": "Nov 5, 2026, 10:51 AM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Staff login",
+    "affected_record": "Authentication",
+    "description": "Casa Amara Manager signed in.",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 25,
+    "date_time": "Nov 5, 2026, 10:50 AM",
+    "user_name": "dasdadsdasda",
+    "user_email": "dasdadsdasda@casaamara.ph",
+    "action": "Staff login",
+    "affected_record": "Authentication",
+    "description": "Failed login attempt for user \"dasdadsdasda\".",
+    "outcome": "FAILED"
+  },
+  {
+    "id": 24,
+    "date_time": "Nov 5, 2026, 10:50 AM",
+    "user_name": "dasdadsdasda",
+    "user_email": "dasdadsdasda@casaamara.ph",
+    "action": "Staff login",
+    "affected_record": "Authentication",
+    "description": "Failed login attempt for user \"dasdadsdasda\".",
+    "outcome": "FAILED"
+  },
+  {
+    "id": 23,
+    "date_time": "Nov 5, 2026, 10:50 AM",
+    "user_name": "dasdadsdasda",
+    "user_email": "dasdadsdasda@casaamara.ph",
+    "action": "Staff login",
+    "affected_record": "Authentication",
+    "description": "Failed login attempt for user \"dasdadsdasda\".",
+    "outcome": "FAILED"
+  },
+  {
+    "id": 22,
+    "date_time": "Nov 5, 2026, 10:50 AM",
+    "user_name": "dasdads",
+    "user_email": "dasdads@casaamara.ph",
+    "action": "Staff login",
+    "affected_record": "Authentication",
+    "description": "Failed login attempt for user \"dasdads\".",
+    "outcome": "FAILED"
+  },
+  {
+    "id": 21,
+    "date_time": "Nov 5, 2026, 10:35 AM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Database Restored",
+    "affected_record": "SQL Database",
+    "description": "Casa Amara Manager restored database from \"casa_amara_db_backup_2026-11-05 (4).sql\". Pre-restoration safety snapshot saved as \"pre_restore_backup_casa_amara_db_2026-11-05T02-35-24-887Z.sql\".",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 20,
+    "date_time": "Nov 5, 2026, 10:34 AM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Database Restored",
+    "affected_record": "SQL Database",
+    "description": "Casa Amara Manager restored database from \"casa_amara_db_backup_2026-11-05 (3).sql\". Pre-restoration safety snapshot saved as \"pre_restore_backup_casa_amara_db_2026-11-05T02-34-09-159Z.sql\".",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 19,
+    "date_time": "Nov 5, 2026, 10:33 AM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Database Backup Downloaded",
+    "affected_record": "SQL Database",
+    "description": "Casa Amara Manager downloaded live SQL database backup (casa_amara_db_backup_2026-11-05.sql).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 18,
+    "date_time": "Nov 5, 2026, 10:33 AM",
+    "user_name": "Hotel Admin",
+    "user_email": "admin@casaamara.ph",
+    "action": "Reservation approved",
+    "affected_record": "Reservations",
+    "description": "Approved reservation CA-AJJWUJ-GPK for Kassy Jade.",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 17,
+    "date_time": "Nov 5, 2026, 10:32 AM",
+    "user_name": "Kassy Jade",
+    "user_email": "ladangakassandrajadeb@gmail.com",
+    "action": "Reservation created",
+    "affected_record": "Reservations",
+    "description": "Created reservation CA-AJJWUJ-GPK for Kassy Jade (Room 206).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 16,
+    "date_time": "Nov 5, 2026, 10:29 AM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Database Restored",
+    "affected_record": "SQL Database",
+    "description": "Casa Amara Manager restored database from \"casa_amara_db_backup_2026-11-05 (2).sql\". Pre-restoration safety snapshot saved as \"pre_restore_backup_casa_amara_db_2026-11-05T02-29-24-243Z.sql\".",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 15,
+    "date_time": "Nov 5, 2026, 10:28 AM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Database Backup Downloaded",
+    "affected_record": "SQL Database",
+    "description": "Casa Amara Manager downloaded live SQL database backup (casa_amara_db_backup_2026-11-05.sql).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 14,
+    "date_time": "Nov 5, 2026, 10:28 AM",
+    "user_name": "Hotel Admin",
+    "user_email": "admin@casaamara.ph",
+    "action": "Reservation approved",
+    "affected_record": "Reservations",
+    "description": "Approved reservation CA-YG61ES-CWP for Tobi Salvahan.",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 13,
+    "date_time": "Nov 5, 2026, 10:22 AM",
+    "user_name": "Tobi Salvahan",
+    "user_email": "tobeymaceda87@gmail.com",
+    "action": "Reservation created",
+    "affected_record": "Reservations",
+    "description": "Created reservation CA-YG61ES-CWP for Tobi Salvahan (Room 103).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 12,
+    "date_time": "Nov 5, 2026, 10:20 AM",
+    "user_name": "Casa Amara Staff",
+    "user_email": "manager@casaamara.ph",
+    "action": "Reservation cancelled",
+    "affected_record": "Reservations",
+    "description": "Cancelled reservation CA-MCGFN3-5BX.",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 11,
+    "date_time": "Nov 5, 2026, 12:58 AM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Staff login",
+    "affected_record": "Authentication",
+    "description": "Casa Amara Manager signed in.",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 10,
+    "date_time": "Nov 5, 2026, 12:53 AM",
+    "user_name": "Casa Amara Administrator",
+    "user_email": "admin@casaamara.ph",
+    "action": "Staff login",
+    "affected_record": "Authentication",
+    "description": "Casa Amara Administrator signed in.",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 9,
+    "date_time": "Nov 5, 2026, 12:52 AM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Database Backup Downloaded",
+    "affected_record": "SQL Database",
+    "description": "Casa Amara Manager downloaded live SQL database backup (casa_amara_db_backup_2026-11-05.sql).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 8,
+    "date_time": "Nov 5, 2026, 12:48 AM",
+    "user_name": "admin",
+    "user_email": "admin@casaamara.ph",
+    "action": "Database Restore Denied",
+    "affected_record": "SQL Database",
+    "description": "Unauthorized attempt to restore database by user \"admin\". Manager permission required.",
+    "outcome": "FAILED"
+  },
+  {
+    "id": 7,
+    "date_time": "Nov 5, 2026, 12:48 AM",
+    "user_name": "Casa Amara Administrator",
+    "user_email": "admin@casaamara.ph",
+    "action": "Database Backup Downloaded",
+    "affected_record": "SQL Database",
+    "description": "Casa Amara Administrator downloaded live SQL database backup (casa_amara_db_backup_2026-11-05.sql).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 6,
+    "date_time": "Nov 5, 2026, 12:27 AM",
+    "user_name": "Casa Amara Manager",
+    "user_email": "manager@casaamara.ph",
+    "action": "Staff login",
+    "affected_record": "Authentication",
+    "description": "Casa Amara Manager signed in.",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 5,
+    "date_time": "Nov 5, 2026, 12:27 AM",
+    "user_name": "Casa Amara Administrator",
+    "user_email": "admin@casaamara.ph",
+    "action": "Database Backup Downloaded",
+    "affected_record": "SQL Database",
+    "description": "Casa Amara Administrator downloaded live SQL database backup (casa_amara_db_backup_2026-11-05.sql).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 4,
+    "date_time": "Nov 5, 2026, 12:23 AM",
+    "user_name": "admin",
+    "user_email": "admin@casaamara.ph",
+    "action": "Database Restore Denied",
+    "affected_record": "SQL Database",
+    "description": "Unauthorized attempt to restore database by user \"admin\". Manager permission required.",
+    "outcome": "FAILED"
+  },
+  {
+    "id": 3,
+    "date_time": "Nov 5, 2026, 12:23 AM",
+    "user_name": "Casa Amara Administrator",
+    "user_email": "admin@casaamara.ph",
+    "action": "Database Backup Downloaded",
+    "affected_record": "SQL Database",
+    "description": "Casa Amara Administrator downloaded live SQL database backup (casa_amara_db_backup_2026-11-05.sql).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 2,
+    "date_time": "Nov 5, 2026, 12:02 AM",
+    "user_name": "Casa Amara Administrator",
+    "user_email": "admin@casaamara.ph",
+    "action": "Database Backup Downloaded",
+    "affected_record": "SQL Database",
+    "description": "Casa Amara Administrator downloaded live SQL database backup (casa_amara_db_backup_2026-11-05.sql).",
+    "outcome": "SUCCESSFUL"
+  },
+  {
+    "id": 1,
+    "date_time": "Nov 5, 2026, 12:00 AM",
+    "user_name": "Casa Amara Administrator",
+    "user_email": "admin@casaamara.ph",
+    "action": "Staff login",
+    "affected_record": "Authentication",
+    "description": "Casa Amara Administrator signed in.",
+    "outcome": "SUCCESSFUL"
+  }
+]

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550" width="100%" height="100%">
+  <defs>
+    <linearGradient id="familyBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b3127"/>
+      <stop offset="100%" stop-color="#1d1712"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="550" fill="url(#familyBg)"/>
+
+  <!-- Sunlit inner courtyard window impression -->
+  <rect x="180" y="50" width="440" height="380" fill="#a89a87" opacity="0.35"/>
+
+  <!-- Indoor plant & botanical silhouette -->
+  <circle cx="280" cy="220" r="70" fill="#2d3b2a" opacity="0.45"/>
+  <circle cx="250" cy="270" r="50" fill="#354532" opacity="0.45"/>
+  <rect x="260" y="310" width="40" height="50" rx="3" fill="#cfc2b0"/>
+
+  <!-- Armchair & wood tones -->
+  <path d="M420 310 C 420 270, 460 250, 520 250 L 590 260 L 610 410 L 400 410 Z" fill="#846d57" opacity="0.75"/>
+  <rect x="440" y="320" width="140" height="80" rx="6" fill="#a48a70"/>
+
+  <!-- Label Badge -->
+  <g transform="translate(400, 470)">
+    <rect x="-130" y="-18" width="260" height="36" rx="18" fill="rgba(24, 20, 16, 0.75)" stroke="#bfa780" stroke-width="1"/>
+    <text x="0" y="5" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#e8dac5" text-anchor="middle" letter-spacing="2">
+      FAMILY ROOM (800x550)
+    </text>
+  </g>
+</svg>

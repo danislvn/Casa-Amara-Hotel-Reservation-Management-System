@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casa Amara | Hotel Admin &amp; Room Inventory Publishing Portal</title>
+  <meta name="description" content="Casa Amara Boutique Hotel Management &amp; Room Publishing System. Manage inventory, nightly rates, amenities, and guest reservations.">
+  
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-body">
+
+  <!-- =========================================================================
+       1. Staff Authentication Overlay (Security Gate)
+       ========================================================================= -->
+  <div class="admin-login-overlay" id="loginOverlay">
+    <div class="admin-login-card">
+      <div class="admin-login-logo">CA</div>
+      <h2 class="admin-login-title">Staff Portal</h2>
+      <p class="admin-login-subtitle">Casa Amara Boutique Hotel Property Management</p>
+
+      <form id="loginForm">
+        <div class="form-field-group" style="text-align: left;">
+          <label for="loginUsername">Staff Username</label>
+          <input type="text" id="loginUsername" placeholder="e.g. admin" required autocomplete="username">
+        </div>
+        <div class="form-field-group" style="text-align: left;">
+          <label for="loginPassword">Security Password</label>
+          <input type="password" id="loginPassword" placeholder="••••••••" required autocomplete="current-password">
+        </div>
+        <div id="loginError" style="display: none; color: #E53E3E; font-size: 0.85rem; margin-bottom: 1rem; text-align: left;"></div>
+        <button type="submit" class="btn-login-submit">Sign In to Dashboard</button>
+      </form>
+
+      
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       2. Admin Navbar
+       ========================================================================= -->
+  <header class="admin-navbar">
+    <div class="admin-nav-inner">
+      <div class="admin-nav-left">
+        <a href="index.html" class="admin-logo-link">
+          <div class="logo-circle" style="width: 38px; height: 38px; font-size: 1rem;">CA</div>
+          <div class="logo-text">
+            <span class="logo-title" style="font-size: 1.25rem;">Casa Amara</span>
+            <span class="logo-subtitle" style="font-size: 0.58rem;">MANAGEMENT PORTAL</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="admin-nav-right">
+        <a href="rooms.html" target="_blank" class="btn-nav-action">View Live Catalog ↗</a>
+        <a href="booking.html" target="_blank" class="btn-nav-action">Booking Flow ↗</a>
+        <button type="button" class="btn-nav-action btn-nav-signout" id="btnSignOut">Sign Out</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       3. Main Dashboard Body
+       ========================================================================= -->
+  <main class="admin-main">
+    <!-- Header Title & Action Row -->
+    <div class="admin-header-row">
+      <div class="admin-title-area">
+        <h1>Room Inventory &amp; Publishing</h1>
+        <p>Post new luxury rooms, adjust nightly rates, manage unit availability, and oversee guest bookings.</p>
+      </div>
+      <div class="admin-actions-area">
+        <button type="button" class="btn-post-room" id="btnOpenPostModal">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          Post / Publish New Room
+        </button>
+      </div>
+    </div>
+
+    <!-- KPI Performance Cards -->
+    <section class="admin-kpi-grid">
+      <div class="admin-kpi-card">
+        <div class="kpi-label">Room Categories</div>
+        <div class="kpi-value" id="kpiTotalRooms">4</div>
+        <div class="kpi-subtext">Active room types published</div>
+      </div>
+      <div class="admin-kpi-card">
+        <div class="kpi-label">Available Units</div>
+        <div class="kpi-value" id="kpiAvailableUnits">15</div>
+        <div class="kpi-subtext">Ready for immediate check-in</div>
+      </div>
+      <div class="admin-kpi-card">
+        <div class="kpi-label">Under Maintenance</div>
+        <div class="kpi-value" id="kpiMaintenanceRooms">0</div>
+        <div class="kpi-subtext">Temporarily off-market</div>
+      </div>
+      <div class="admin-kpi-card">
+        <div class="kpi-label">Total Reservations</div>
+        <div class="kpi-value" id="kpiTotalReservations">4</div>
+        <div class="kpi-subtext">Synchronized from web &amp; desk</div>
+      </div>
+    </section>
+
+    <!-- Tab Switching -->
+    <div class="admin-tabs-nav">
+      <button type="button" class="admin-tab-btn active" data-tab="rooms">Rooms &amp; Suites Inventory</button>
+      <button type="button" class="admin-tab-btn" data-tab="reservations">Guest Reservations</button>
+      <button type="button" class="admin-tab-btn" data-tab="reports">Reports</button>
+      <button type="button" class="admin-tab-btn" data-tab="backup">Database Backup &amp; Restore</button>
+      <button type="button" class="admin-tab-btn manager-only-tab" data-tab="logs" style="display: none;">Activity Logs</button>
+      <button type="button" class="admin-tab-btn manager-only-tab" data-tab="staff" style="display: none;">Staff Users</button>
+    </div>
+
+    <!-- Toolbar: Search & Filters -->
+    <div class="admin-toolbar">
+      <div class="toolbar-search-box">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="roomSearchInput" placeholder="Search rooms by name, bedding, or specs...">
+      </div>
+      <div class="toolbar-filters">
+        <!-- 1. Category Filter -->
+        <div class="filter-group-item">
+          <label for="roomCategoryFilter" class="filter-label">Category:</label>
+          <div class="custom-select-wrap">
+            <select id="roomCategoryFilter" class="filter-select">
+              <option value="all">All Categories</option>
+            </select>
+            <svg class="select-chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </div>
+        </div>
+
+        <!-- 2. Floor Number Filter -->
+        <div class="filter-group-item">
+          <label for="roomFloorFilter" class="filter-label">Floor:</label>
+          <div class="custom-select-wrap">
+            <select id="roomFloorFilter" class="filter-select">
+              <option value="all">All Floors</option>
+            </select>
+            <svg class="select-chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </div>
+        </div>
+
+        <!-- 3. Room Number Filter -->
+        <div class="filter-group-item">
+          <label for="roomNumberFilter" class="filter-label">Room No:</label>
+          <div class="custom-select-wrap">
+            <select id="roomNumberFilter" class="filter-select">
+              <option value="all">All Rooms</option>
+            </select>
+            <svg class="select-chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rooms Catalog Cards Grid (Active Tab 1) -->
+    <div class="admin-rooms-grid" id="roomsContainer">
+      <!-- Dynamically Rendered by js/admin.js -->
+    </div>
+
+    <!-- Guest Reservations Table (Active Tab 2) -->
+    <div id="reservationsContainer" style="display: none;">
+      <!-- Reservations Toolbar: Search & Sort/Filter Dropdowns -->
+      <div class="admin-toolbar reservations-toolbar" id="reservationsToolbar">
+        <div class="toolbar-search-box">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="resSearchInput" placeholder="Search by guest, reference, room, or email...">
+        </div>
+        <div class="toolbar-filters">
+          <!-- 1. Sort By Dropdown -->
+          <div class="filter-group-item">
+            <label for="resSortSelect" class="filter-label">Sort By:</label>
+            <div class="custom-select-wrap">
+              <select id="resSortSelect" class="filter-select">
+                <option value="room-type-asc">Room Type (A → Z)</option>
+                <option value="room-type-desc">Room Type (Z → A)</option>
+                <option value="room-num-asc">Room No. (Low → High)</option>
+                <option value="room-num-desc">Room No. (High → Low)</option>
+                <option value="date-desc">Stay Dates (Latest First)</option>
+                <option value="date-asc">Stay Dates (Earliest First)</option>
+                <option value="guest-name">Guest Name (A → Z)</option>
+                <option value="amount-desc">Total Amount (High → Low)</option>
+                <option value="amount-asc">Total Amount (Low → High)</option>
+              </select>
+              <svg class="select-chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+          </div>
+
+          <!-- 2. Room Type Filter Dropdown -->
+          <div class="filter-group-item">
+            <label for="resRoomTypeFilter" class="filter-label">Room Type:</label>
+            <div class="custom-select-wrap">
+              <select id="resRoomTypeFilter" class="filter-select">
+                <option value="all">All Room Types</option>
+              </select>
+              <svg class="select-chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+          </div>
+
+          <!-- 3. Room Number Filter Dropdown -->
+          <div class="filter-group-item">
+            <label for="resRoomNumberFilter" class="filter-label">Room No:</label>
+            <div class="custom-select-wrap">
+              <select id="resRoomNumberFilter" class="filter-select">
+                <option value="all">All Rooms</option>
+              </select>
+              <svg class="select-chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="admin-table-container">
+        <table class="admin-data-table">
+          <thead>
+            <tr>
+              <th class="res-col-ref-id">Reference ID</th>
+              <th class="res-col-guest">Guest Details</th>
+              <th class="res-col-room">Room &amp; Guests</th>
+              <th class="res-col-room-no">Room No.</th>
+              <th class="res-col-stay-dates">Stay Dates</th>
+              <th class="res-col-amount">Total Amount</th>
+              <th class="res-col-status">Payment Status</th>
+              <th class="res-col-actions">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="reservationsTableBody">
+            <!-- Dynamically Rendered by js/admin.js -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Live Reports & Performance (Active Tab 3 - Figma Design) -->
+    <div id="reportsContainer" style="display: none;">
+      <div class="reports-header-row">
+        <div class="reports-title-area">
+          <span class="reports-eyebrow">LIVE REPORTS</span>
+          <h2 class="reports-title">Hotel performance</h2>
+          <p class="reports-subtitle">Simple reports calculated from current room, reservation, and payment records.</p>
+        </div>
+        <div class="reports-actions-area">
+          <button type="button" class="btn-refresh-reports" id="btnRefreshReports">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+            <span>Sync Live Data</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="reports-cards-grid">
+        <!-- 1. Reservation summary -->
+        <div class="figma-report-card">
+          <div class="report-card-heading">Reservation summary</div>
+          <div class="report-card-metric" id="repSummaryTotal">0</div>
+          <div class="report-card-breakdown">
+            <span class="report-breakdown-item" id="repConfirmedRow">0 confirmed</span>
+            <span class="report-breakdown-item" id="repPendingRow">0 pending</span>
+            <span class="report-breakdown-item" id="repCancelledRow">0 cancelled</span>
+          </div>
+        </div>
+
+        <!-- 2. Room occupancy today -->
+        <div class="figma-report-card">
+          <div class="report-card-heading">Room occupancy today</div>
+          <div class="report-card-metric" id="repOccupancyPercent">0%</div>
+          <div class="report-card-breakdown">
+            <span class="report-breakdown-item" id="repOccupiedUnitsRow">0 occupied / reserved</span>
+            <span class="report-breakdown-item" id="repAvailableUnitsRow">12 available</span>
+            <span class="report-breakdown-item" id="repInventoryUnitsRow">12 inventory</span>
+          </div>
+        </div>
+
+        <!-- 3. Payment summary -->
+        <div class="figma-report-card">
+          <div class="report-card-heading">Payment summary</div>
+          <div class="report-card-metric" id="repPaymentTotal">₱0</div>
+          <div class="report-card-breakdown">
+            <span class="report-breakdown-item" id="repBookingValueRow">₱0 total booking value</span>
+            <span class="report-breakdown-item" id="repPaidRow">0 fully paid</span>
+            <span class="report-breakdown-item" id="repDepositsRow">0 deposits</span>
+          </div>
+        </div>
+
+        <!-- 4. Booking trends -->
+        <div class="figma-report-card">
+          <div class="report-card-heading">Booking trends</div>
+          <div class="report-card-metric" id="repTrendsTotal">0</div>
+          <div class="report-card-breakdown">
+            <span class="report-breakdown-item" id="repMonthRow">0 reservations this month</span>
+            <span class="report-breakdown-item" id="repGuestsRow">0 unique guests</span>
+            <span class="report-breakdown-item" id="repTypesRow">4 room types</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dedicated Database Backup & Restore Tab (Admins & Managers) -->
+    <div id="backupContainer" style="display: none;">
+      <div class="backup-section-header">
+        <span class="backup-access-eyebrow">SYSTEM MAINTENANCE &amp; DISASTER RECOVERY</span>
+        <h2 class="backup-section-title">Database Backup &amp; Restore</h2>
+        <p class="backup-section-subtitle">Securely export current database schemas and records as portable SQL snapshots, or restore previous states with automatic pre-restoration safeguards.</p>
+      </div>
+
+      <div class="backup-grid-container">
+        <!-- Area 1: Database Backup (Admins & Managers) -->
+        <div class="backup-card">
+          <div class="backup-card-header">
+            <div class="backup-card-icon-wrap backup-icon-gold">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="backup-card-title">Database Backup</h3>
+              <p class="backup-card-subtitle">Complete SQL dump including structure, tables, and live records</p>
+            </div>
+          </div>
+
+          <div class="backup-card-body">
+            <p class="backup-card-desc">
+              Generate an immediate, live SQL backup file of the Casa Amara database. Backups include full DDL schemas and DML row data without modifying or interrupting existing guest bookings.
+            </p>
+
+            <div class="backup-info-panel">
+              <div class="backup-info-panel-title">Current Database Status</div>
+              <div class="backup-stats-grid">
+                <div class="backup-stat-item">
+                  <span class="backup-stat-label">Database Target</span>
+                  <span class="backup-stat-val" id="dbInfoName">casa_amara_db</span>
+                </div>
+                <div class="backup-stat-item">
+                  <span class="backup-stat-label">Structure</span>
+                  <span class="backup-stat-val" id="dbInfoTables">4 Base Tables</span>
+                </div>
+                <div class="backup-stat-item">
+                  <span class="backup-stat-label">Live Records</span>
+                  <span class="backup-stat-val" id="dbInfoRecords">Loading counts...</span>
+                </div>
+                <div class="backup-stat-item">
+                  <span class="backup-stat-label">Latest Server Snapshot</span>
+                  <span class="backup-stat-val" id="dbInfoLatestBackup">Ready on demand</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="backup-card-action">
+              <button type="button" class="btn-primary-action btn-backup-download-action btn-download-sql-backup" id="btnDownloadSqlBackupSection" title="Download SQL Database Backup (.sql)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span>Download SQL Backup (.sql)</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Area 2: Database Restore (Manager Only) -->
+        <div class="backup-card">
+          <div class="backup-card-header">
+            <div class="backup-card-icon-wrap backup-icon-gold">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 2v6h-6"></path>
+                <path d="M3 12a9 9 0 0 1 15-6.7L21 8"></path>
+                <path d="M3 22v-6h6"></path>
+                <path d="M21 12a9 9 0 0 1-15 6.7L3 16"></path>
+              </svg>
+            </div>
+            <div>
+              <div class="backup-title-row">
+                <h3 class="backup-card-title">Database Restore</h3>
+                <span class="manager-badge-pill">Manager Only</span>
+              </div>
+              <p class="backup-card-subtitle">Restore system state from a verified SQL backup file</p>
+            </div>
+          </div>
+
+          <div class="backup-card-body">
+            <!-- Admin Role Notice (Visible only to Admin) -->
+            <div class="backup-restricted-callout" id="restoreRestrictedNotice" style="display: none;">
+              <div>
+                <strong>Restricted Administrative Permission</strong>
+                <p>Database restoration requires Hotel Manager authorization. As an Admin, you may generate and download live backups above. Contact a Manager to execute restoration procedures.</p>
+              </div>
+            </div>
+
+            <!-- Manager Restore Interface (Visible only to Manager) -->
+            <div id="databaseRestoreSection">
+              <div class="backup-warning-callout">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2.2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                <div>
+                  <strong>Important Notice: Overwriting Current Data</strong>
+                  Restoring will overwrite current database records with the contents of the chosen backup file.
+                  <span class="backup-safety-notice">Automatic Safety Feature: A fresh snapshot of your current database is automatically captured on the server before restoring.</span>
+                </div>
+              </div>
+
+              <!-- Drag & Drop Zone -->
+              <div class="backup-dropzone" id="restoreDropzone">
+                <div id="dropzoneClickArea">
+                  <div class="dropzone-icon">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--ca-gold, #B59A72)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                      <polyline points="17 8 12 3 7 8"></polyline>
+                      <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                  </div>
+                  <div class="dropzone-text"><strong>Choose a SQL backup file</strong> or drag &amp; drop here</div>
+                  <div class="dropzone-hint">Accepts .sql backup files up to 30 MB</div>
+                </div>
+                <input type="file" id="restoreSqlFileInput" accept=".sql" style="display: none;">
+              </div>
+
+              <!-- Selected File Card -->
+              <div class="selected-file-card" id="selectedFileCard" style="display: none;">
+                <div class="selected-file-info">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <div>
+                    <span class="selected-filename" id="selectedFilenameLabel">filename.sql</span>
+                    <span class="selected-filesize" id="selectedFilesizeLabel">0 KB</span>
+                  </div>
+                </div>
+                <button type="button" class="btn-clear-file" id="btnClearSelectedFile" title="Remove selected file">&times;</button>
+              </div>
+
+              <div class="backup-card-action">
+                <button type="button" class="btn-restore-action" id="btnOpenRestoreConfirmModal" disabled>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 2v6h-6"></path>
+                    <path d="M3 12a9 9 0 0 1 15-6.7L21 8"></path>
+                    <path d="M3 22v-6h6"></path>
+                    <path d="M21 12a9 9 0 0 1-15 6.7L3 16"></path>
+                  </svg>
+                  <span>Restore Database</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Activity Logs (Manager Only Access) -->
+    <div id="logsContainer" style="display: none;">
+      <div class="manager-section-header">
+        <span class="manager-access-eyebrow">MANAGER ACCESS</span>
+        <h2 class="manager-section-title">Activity logs</h2>
+        <p class="manager-section-subtitle">An append-only view of actual authentication, account, reservation, room, and payment events processed in this browser.</p>
+      </div>
+
+      <!-- Logs Filter Bar matching Figma / Screenshot -->
+      <div class="logs-toolbar">
+        <div class="logs-search-wrap">
+          <input type="text" id="logSearchInput" placeholder="Search activity or affected record">
+        </div>
+        <div class="logs-filter-wrap custom-select-wrap">
+          <select id="logActionFilter" class="manager-select">
+            <option value="all">All</option>
+            <option value="Staff login">Staff login</option>
+            <option value="Room created">Room created</option>
+            <option value="Room updated">Room updated</option>
+            <option value="Room removed">Room removed</option>
+            <option value="Reservation created">Reservation created</option>
+            <option value="Reservation updated">Reservation updated</option>
+            <option value="Reservation cancelled">Reservation cancelled</option>
+            <option value="Staff account created">Staff account created</option>
+            <option value="Staff status updated">Staff status updated</option>
+            <option value="Staff account removed">Staff account removed</option>
+          </select>
+          <svg class="select-chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+        <div class="logs-filter-wrap custom-select-wrap">
+          <select id="logOutcomeFilter" class="manager-select">
+            <option value="all">All</option>
+            <option value="SUCCESSFUL">Successful</option>
+            <option value="FAILED">Failed</option>
+          </select>
+          <svg class="select-chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+        <div class="logs-date-filter-group">
+          <div class="date-input-wrap">
+            <span class="date-field-label">FROM</span>
+            <input type="date" id="logDateFrom">
+          </div>
+          <div class="date-input-wrap">
+            <span class="date-field-label">TO</span>
+            <input type="date" id="logDateTo">
+          </div>
+        </div>
+      </div>
+
+      <!-- Logs Table Card -->
+      <div class="manager-table-card">
+        <div class="manager-table-scroll">
+          <table class="manager-data-table logs-table">
+            <thead>
+              <tr>
+                <th>DATE &amp; TIME</th>
+                <th>USER</th>
+                <th>ACTION</th>
+                <th>AFFECTED RECORD</th>
+                <th>DESCRIPTION</th>
+                <th>OUTCOME</th>
+              </tr>
+            </thead>
+            <tbody id="logsTableBody">
+              <!-- Dynamically populated by js/admin.js -->
+            </tbody>
+          </table>
+        </div>
+        <div id="logsEmptyState" class="manager-empty-state" style="display: none;">
+          No activity logs match the selected filter criteria.
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Staff Users (Manager Only Access) -->
+    <div id="staffContainer" style="display: none;">
+      <div class="manager-section-header">
+        <span class="manager-access-eyebrow">MANAGER ACCESS</span>
+        <h2 class="manager-section-title">Staff users</h2>
+        <p class="manager-section-subtitle">Create and manage the Admin accounts authorized to operate Casa Amara. Manager access is protected from changes on this page.</p>
+      </div>
+
+      <div class="staff-layout-grid">
+        <!-- Left: Add a staff member form -->
+        <div class="staff-create-card">
+          <span class="staff-form-eyebrow">NEW ADMIN</span>
+          <h3 class="staff-form-title">Add a staff member</h3>
+          <form id="addStaffForm" class="staff-form">
+            <div class="staff-field-group">
+              <label for="staffFullName">Full name</label>
+              <input type="text" id="staffFullName" required autocomplete="off">
+            </div>
+            <div class="staff-field-group">
+              <label for="staffEmail">Email address</label>
+              <input type="email" id="staffEmail" required autocomplete="off">
+            </div>
+            <div class="staff-field-group">
+              <label for="staffPassword">Temporary password</label>
+              <input type="password" id="staffPassword" required minlength="10" autocomplete="new-password">
+              <span class="staff-field-hint">At least 10 characters with uppercase, lowercase, and a number.</span>
+            </div>
+            <div class="staff-form-actions">
+              <button type="submit" class="btn-create-admin" id="btnCreateAdmin">Create Admin</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Right: Staff directory and search -->
+        <div class="staff-directory-card">
+          <div class="staff-toolbar">
+            <div class="staff-search-wrap">
+              <input type="text" id="staffSearchInput" placeholder="Search name, email, or role">
+            </div>
+            <div class="staff-filter-wrap custom-select-wrap">
+              <select id="staffRoleFilter" class="manager-select">
+                <option value="all">All</option>
+                <option value="Manager">Manager</option>
+                <option value="Admin">Admin</option>
+              </select>
+              <svg class="select-chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+          </div>
+
+          <div class="manager-table-card staff-table-wrap">
+            <div class="manager-table-scroll">
+              <table class="manager-data-table staff-table">
+                <thead>
+                  <tr>
+                    <th>STAFF MEMBER</th>
+                    <th>ROLE</th>
+                    <th>STATUS</th>
+                    <th>LAST SIGN IN</th>
+                    <th>ACTIONS</th>
+                  </tr>
+                </thead>
+                <tbody id="staffTableBody">
+                  <!-- Dynamically populated by js/admin.js -->
+                </tbody>
+              </table>
+            </div>
+            <div id="staffEmptyState" class="manager-empty-state" style="display: none;">
+              No staff members found matching search query.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- =========================================================================
+       4. Post / Edit Room Modal Dialog
+       ========================================================================= -->
+  <div class="admin-modal-backdrop" id="roomModalBackdrop">
+    <div class="admin-modal-container">
+      <div class="admin-modal-header">
+        <h2 id="modalTitle">Post / Publish New Room</h2>
+        <button type="button" class="modal-close-btn" id="btnCloseModal">&times;</button>
+      </div>
+
+            <form id="roomForm">
+        <div class="admin-modal-body">
+          <input type="hidden" id="roomId">
+
+          <!-- 2-Column: Room Name & Nightly Rate -->
+          <div class="form-grid-2col">
+            <div class="form-field-group">
+              <label for="roomName">Room Title *</label>
+              <input type="text" id="roomName" placeholder="e.g. Presidential Villa" required>
+            </div>
+            <div class="form-field-group">
+              <label for="roomRate">Rate per Night (₱) *</label>
+              <input type="number" id="roomRate" placeholder="e.g. 18500" required min="1000" step="100">
+            </div>
+          </div>
+
+          <!-- Tagline -->
+          <div class="form-field-group">
+            <label for="roomTagline">Tagline / Short Description</label>
+            <input type="text" id="roomTagline" placeholder="e.g. Secluded sanctuary with private plunge pool and garden.">
+          </div>
+
+          <!-- 3-Column: Capacity & Inventory -->
+          <div class="form-grid-2col" style="grid-template-columns: 1fr 1fr 1fr;">
+            <div class="form-field-group">
+              <label for="roomMaxGuests">Max Guests *</label>
+              <input type="number" id="roomMaxGuests" value="2" min="1" max="10" required>
+            </div>
+            <div class="form-field-group">
+              <label for="roomTotalUnits">Total Units *</label>
+              <input type="number" id="roomTotalUnits" value="5" min="1" max="50" required>
+            </div>
+            <div class="form-field-group">
+              <label for="roomAvailUnits">Available Units *</label>
+              <input type="number" id="roomAvailUnits" value="5" min="0" max="50" required>
+            </div>
+          </div>
+
+          <!-- Bedding, Size, View -->
+          <div class="form-grid-2col" style="grid-template-columns: 1fr 1fr 1fr;">
+            <div class="form-field-group">
+              <label for="roomBedConfig">Bed Configuration</label>
+              <input type="text" id="roomBedConfig" placeholder="e.g. 1 King Bed">
+            </div>
+            <div class="form-field-group">
+              <label for="roomSizeNum">Room Size (m²)</label>
+              <div class="input-with-unit">
+                <input type="number" id="roomSizeNum" placeholder="e.g. 52" min="10" max="500" step="1">
+                <span class="unit-suffix">m²</span>
+              </div>
+              <input type="hidden" id="roomSize" name="roomSize" value="52 m²">
+            </div>
+            <div class="form-field-group">
+              <label for="roomView">View</label>
+              <input type="text" id="roomView" placeholder="e.g. Ocean View">
+            </div>
+          </div>
+
+          <!-- Badge, Status, Image Selector -->
+          <div class="form-grid-2col" style="grid-template-columns: 1fr 1fr 1fr;">
+            <div class="form-field-group">
+              <label for="roomBadge">Badge Tag</label>
+              <input type="text" id="roomBadge" placeholder="e.g. Signature, Popular, New">
+            </div>
+            <div class="form-field-group">
+              <label for="roomStatus">Publishing Status *</label>
+              <div class="custom-select-wrap" style="width: 100%;">
+                <select id="roomStatus" required>
+                  <option value="available">Available (Live on Web)</option>
+                  <option value="maintenance">Maintenance / Hold</option>
+                  <option value="sold_out">Sold Out</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-field-group">
+              <label for="roomImageUpload">Room Photo</label>
+              <div class="room-upload-box" id="roomUploadBox">
+                <input type="file" id="roomImageUpload" accept="image/*" style="display: none;">
+                <input type="hidden" id="roomImage" value="assets/images/deluxe-room.jpg">
+                <div class="room-upload-content">
+                  <div class="room-upload-preview">
+                    <img id="roomImgPreview" src="assets/images/deluxe-room.jpg" alt="Room preview">
+                  </div>
+                  <div class="room-upload-info">
+                    <button type="button" class="btn-upload-trigger" id="btnTriggerUpload">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                      <span>Upload Photo</span>
+                    </button>
+                    <span class="upload-filename" id="uploadFileName">JPG, PNG or WebP</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Room Number & Floor Level -->
+          <div class="form-grid-2col">
+            <div class="form-field-group">
+              <label for="roomNumber">Room Number / Unit No.</label>
+              <input type="text" id="roomNumber" placeholder="e.g. 101 or 101 - 108" inputmode="numeric" pattern="[0-9,\-\s]*" title="Room numbers in numerical form only (e.g. 101 or 101 - 108). Letters are prohibited.">
+            </div>
+            <div class="form-field-group">
+              <label for="floorNumber">Floor / Level *</label>
+              <div class="custom-select-wrap" style="width: 100%;">
+                <select id="floorNumber" required>
+                  <option value="" disabled selected>Select Floor Level (1–10)...</option>
+                  <option value="1st Floor (Garden Wing)">1st Floor (Garden Wing)</option>
+                  <option value="2nd Floor (Poolside Wing)">2nd Floor (Poolside Wing)</option>
+                  <option value="3rd Floor (Executive Wing)">3rd Floor (Executive Wing)</option>
+                  <option value="4th Floor (Courtyard Wing)">4th Floor (Courtyard Wing)</option>
+                  <option value="5th Floor (Atrium Wing)">5th Floor (Atrium Wing)</option>
+                  <option value="6th Floor (Terrace Wing)">6th Floor (Terrace Wing)</option>
+                  <option value="7th Floor (Skyline Wing)">7th Floor (Skyline Wing)</option>
+                  <option value="8th Floor (Lagoon Wing)">8th Floor (Lagoon Wing)</option>
+                  <option value="9th Floor (Sunset Wing)">9th Floor (Sunset Wing)</option>
+                  <option value="10th Floor (Penthouse Wing)">10th Floor (Penthouse Wing)</option>
+                </select>
+                <svg class="select-chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Key Amenities & Highlights Checklist -->
+          <div class="form-field-group">
+            <label>Key Amenities &amp; Highlights</label>
+            <div class="amenity-checkbox-grid">
+              <label class="amenity-check-card">
+                <input type="checkbox" name="roomAmenities" value="Courtyard garden view">
+                <span class="custom-checkbox-indicator">
+                  <svg class="check-icon" viewBox="0 0 16 16" fill="none">
+                    <path d="M3.5 8.5L6.5 11.5L12.5 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="amenity-name">Courtyard garden view</span>
+              </label>
+              <label class="amenity-check-card">
+                <input type="checkbox" name="roomAmenities" value="Walk-in rain shower">
+                <span class="custom-checkbox-indicator">
+                  <svg class="check-icon" viewBox="0 0 16 16" fill="none">
+                    <path d="M3.5 8.5L6.5 11.5L12.5 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="amenity-name">Walk-in rain shower</span>
+              </label>
+              <label class="amenity-check-card">
+                <input type="checkbox" name="roomAmenities" value="Private outdoor terrace">
+                <span class="custom-checkbox-indicator">
+                  <svg class="check-icon" viewBox="0 0 16 16" fill="none">
+                    <path d="M3.5 8.5L6.5 11.5L12.5 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="amenity-name">Private outdoor terrace</span>
+              </label>
+              <label class="amenity-check-card">
+                <input type="checkbox" name="roomAmenities" value="Deep soaking marble tub">
+                <span class="custom-checkbox-indicator">
+                  <svg class="check-icon" viewBox="0 0 16 16" fill="none">
+                    <path d="M3.5 8.5L6.5 11.5L12.5 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="amenity-name">Deep soaking marble tub</span>
+              </label>
+              <label class="amenity-check-card">
+                <input type="checkbox" name="roomAmenities" value="Complimentary daily breakfast">
+                <span class="custom-checkbox-indicator">
+                  <svg class="check-icon" viewBox="0 0 16 16" fill="none">
+                    <path d="M3.5 8.5L6.5 11.5L12.5 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="amenity-name">Complimentary breakfast</span>
+              </label>
+              <label class="amenity-check-card">
+                <input type="checkbox" name="roomAmenities" value="Nespresso coffee bar">
+                <span class="custom-checkbox-indicator">
+                  <svg class="check-icon" viewBox="0 0 16 16" fill="none">
+                    <path d="M3.5 8.5L6.5 11.5L12.5 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="amenity-name">Nespresso coffee bar</span>
+              </label>
+              <label class="amenity-check-card">
+                <input type="checkbox" name="roomAmenities" value="Complimentary Wi-Fi">
+                <span class="custom-checkbox-indicator">
+                  <svg class="check-icon" viewBox="0 0 16 16" fill="none">
+                    <path d="M3.5 8.5L6.5 11.5L12.5 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="amenity-name">Complimentary Wi-Fi</span>
+              </label>
+              <label class="amenity-check-card">
+                <input type="checkbox" name="roomAmenities" value="Dedicated butler assistance">
+                <span class="custom-checkbox-indicator">
+                  <svg class="check-icon" viewBox="0 0 16 16" fill="none">
+                    <path d="M3.5 8.5L6.5 11.5L12.5 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="amenity-name">Dedicated butler</span>
+              </label>
+              <label class="amenity-check-card">
+                <input type="checkbox" name="roomAmenities" value="VIP airport luxury transfer">
+                <span class="custom-checkbox-indicator">
+                  <svg class="check-icon" viewBox="0 0 16 16" fill="none">
+                    <path d="M3.5 8.5L6.5 11.5L12.5 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="amenity-name">VIP airport transfer</span>
+              </label>
+              <label class="amenity-check-card">
+                <input type="checkbox" name="roomAmenities" value="Evening turndown service">
+                <span class="custom-checkbox-indicator">
+                  <svg class="check-icon" viewBox="0 0 16 16" fill="none">
+                    <path d="M3.5 8.5L6.5 11.5L12.5 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="amenity-name">Evening turndown</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="featured-card-wrapper">
+            <label class="amenity-check-card featured-toggle-card">
+              <input type="checkbox" id="roomFeatured" checked>
+              <span class="custom-checkbox-indicator">
+                <svg class="check-icon" viewBox="0 0 16 16" fill="none">
+                  <path d="M3.5 8.5L6.5 11.5L12.5 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <div class="featured-text-content">
+                <span class="featured-title">Feature this room prominently on the Landing Page</span>
+                <span class="featured-desc">Highlight in the curated suites carousel on the home page</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="admin-modal-footer">
+          <button type="button" class="btn-secondary-action btn-modal-cancel" id="btnCancelModal">Cancel</button>
+          <button type="submit" class="btn-post-room">Save &amp; Publish to Website</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Edit Staff Modal Dialog -->
+  <div class="admin-modal-backdrop" id="editStaffModalBackdrop">
+    <div class="admin-modal-container" style="max-width: 520px;">
+      <div class="admin-modal-header">
+        <h2>Edit Staff Account</h2>
+        <button type="button" class="modal-close-btn" id="btnCloseEditStaffModal">&times;</button>
+      </div>
+      <form id="editStaffForm">
+        <div class="admin-modal-body">
+          <input type="hidden" id="editStaffId">
+          <input type="hidden" id="editStaffUsername">
+
+          <div class="staff-field-group" style="margin-bottom: 1.25rem;">
+            <label for="editStaffFullName">Full name</label>
+            <input type="text" id="editStaffFullName" required autocomplete="off">
+          </div>
+
+          <div class="staff-field-group" style="margin-bottom: 1.25rem;">
+            <label for="editStaffEmail">Email address</label>
+            <input type="email" id="editStaffEmail" required autocomplete="off">
+          </div>
+
+          <div class="staff-field-group" style="margin-bottom: 1.25rem;">
+            <label for="editStaffStatusSelect">Account status</label>
+            <div class="custom-select-wrap">
+              <select id="editStaffStatusSelect" class="manager-select" style="width: 100%;">
+                <option value="ACTIVE">ACTIVE</option>
+                <option value="INACTIVE">INACTIVE</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="staff-field-group" style="margin-bottom: 0.5rem;">
+            <label for="editStaffPassword">New password (optional)</label>
+            <input type="password" id="editStaffPassword" placeholder="Leave blank to keep current password" autocomplete="new-password">
+            <span class="staff-field-hint">If resetting password, minimum 10 characters with uppercase, lowercase, and a number.</span>
+          </div>
+        </div>
+        <div class="admin-modal-footer">
+          <button type="button" class="btn-secondary-action btn-modal-cancel" id="btnCancelEditStaffModal">Cancel</button>
+          <button type="submit" class="btn-post-room">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Delete Staff Confirmation Modal Dialog -->
+  <div class="admin-modal-backdrop" id="deleteStaffModalBackdrop">
+    <div class="admin-modal-container" style="max-width: 460px; padding: 2.2rem 2.2rem 2rem;">
+      <div style="text-align: center;">
+        <div style="width: 52px; height: 52px; border-radius: 50%; background-color: #F8D7DA; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.2rem; color: #721C24;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="3 6 5 6 21 6"></polyline>
+            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+            <line x1="10" y1="11" x2="10" y2="17"></line>
+            <line x1="14" y1="11" x2="14" y2="17"></line>
+          </svg>
+        </div>
+        <h3 style="font-family: var(--font-serif); font-size: 1.6rem; color: #2E261F; margin: 0 0 0.65rem; font-weight: 400;">Remove Staff Account</h3>
+        <p id="deleteStaffConfirmText" style="color: #6C6257; font-size: 0.92rem; line-height: 1.55; margin: 0 0 2rem;">Are you sure you want to remove this staff account? This action cannot be undone.</p>
+        <div style="display: flex; gap: 0.85rem; justify-content: center;">
+          <button type="button" class="btn-secondary-action" id="btnCancelDeleteStaff" style="padding: 0.7rem 1.6rem;">Cancel</button>
+          <button type="button" class="btn-post-room" id="btnConfirmDeleteStaff" style="background-color: #B83227; border-color: #B83227; padding: 0.7rem 1.6rem;">Yes, Remove</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rejection Reason Modal Dialog -->
+  <div class="admin-modal-backdrop" id="rejectReservationModalBackdrop">
+    <div class="admin-modal-container" style="max-width: 500px;">
+      <div class="admin-modal-header">
+        <h2 style="font-family: var(--font-serif); font-size: 1.35rem; color: var(--ca-espresso); margin: 0;">Reject Reservation Request</h2>
+        <button type="button" class="modal-close-btn" id="btnCloseRejectModal">&times;</button>
+      </div>
+      <div class="admin-modal-body" style="padding: 1.5rem 2rem;">
+        <p style="font-size: 0.88rem; color: var(--ca-text-muted); line-height: 1.5; margin-bottom: 1.25rem;">
+          You are rejecting reservation request <strong id="rejectRefIdLabel" style="color: var(--ca-espresso); font-family: monospace;"></strong> for <strong id="rejectGuestNameLabel"></strong>. An email notification will be sent to the guest.
+        </p>
+        <div class="rejection-reason-container">
+          <div class="rejection-reason-header">
+            <label class="rejection-reason-label" for="rejectReasonText">
+              Rejection Reason
+            </label>
+          </div>
+
+          <div class="rejection-chips-row">
+            <span class="rejection-chips-label">Quick options:</span>
+            <button type="button" class="btn-reason-chip" data-reason="Due to scheduled room maintenance, we are unable to accept this booking on your selected dates.">Room Maintenance</button>
+            <button type="button" class="btn-reason-chip" data-reason="We are fully booked for this room category on your requested dates.">Fully Booked</button>
+            <button type="button" class="btn-reason-chip" data-reason="The requested dates conflict with a private hotel event.">Event Conflict</button>
+          </div>
+
+          <div class="textarea-wrapper">
+            <textarea id="rejectReasonText" class="rejection-modern-textarea" rows="4" maxlength="300" placeholder="Type a polite reason or pick a quick option above (e.g. Due to scheduled room maintenance, we are unable to accommodate your stay on the selected dates)..."></textarea>
+            <div class="textarea-hint-footer">
+              <span id="rejectReasonCharCount">0 / 300</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="admin-modal-footer" style="padding: 1.25rem 2rem; display: flex; justify-content: flex-end; gap: 0.75rem;">
+        <button type="button" class="btn-secondary-action btn-modal-keep" id="btnCancelRejectModal">Keep Reservation</button>
+        <button type="button" class="btn-confirm-reject-animated" id="btnConfirmRejectReservation">
+          <span class="btn-reject-text">Confirm Rejection</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Database Restore Confirmation Modal Dialog -->
+  <div class="admin-modal-backdrop" id="restoreConfirmModalBackdrop">
+    <div class="admin-modal-container" style="max-width: 520px;">
+      <div class="admin-modal-header" style="border-bottom: 1px solid #FEE2E2; background-color: #FEF2F2;">
+        <h2 style="font-family: var(--font-serif); font-size: 1.35rem; color: #991B1B; margin: 0; display: flex; align-items: center; gap: 0.5rem;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+          Confirm Database Restoration
+        </h2>
+        <button type="button" class="modal-close-btn" id="btnCloseRestoreModal">&times;</button>
+      </div>
+      <div class="admin-modal-body" style="padding: 1.5rem 2rem;">
+        <p style="font-size: 0.9rem; color: var(--ca-espresso, #1C1917); line-height: 1.55; margin-bottom: 1rem;">
+          You are about to restore the database from the following backup file:
+        </p>
+        <div style="background: #F8F5F0; border: 1px solid var(--ca-border-subtle, #E2DBD2); border-radius: 8px; padding: 0.75rem 1rem; margin-bottom: 1.25rem; font-family: monospace; font-size: 0.9rem; color: var(--ca-espresso, #1C1917);" id="restoreModalFilename">
+          casa_amara_db_backup.sql
+        </div>
+        <div style="background: #FEF3C7; border: 1px solid #FCD34D; border-radius: 8px; padding: 0.85rem 1rem; margin-bottom: 1.25rem;">
+          <strong style="color: #92400E; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.25rem;">Automated Safety Guarantee</strong>
+          <span style="font-size: 0.82rem; color: #78350F; line-height: 1.45; display: block;">
+            The server will automatically capture a full safety snapshot of your current database before executing this file. If anything fails, the recovery snapshot remains preserved.
+          </span>
+        </div>
+        <p style="font-size: 0.85rem; color: #991B1B; font-weight: 600; margin: 0;">
+          Are you sure you want to proceed with replacing existing database records?
+        </p>
+      </div>
+      <div class="admin-modal-footer" style="padding: 1.25rem 2rem; display: flex; justify-content: flex-end; gap: 0.75rem;">
+        <button type="button" class="btn-secondary-action" id="btnCancelRestoreModal">Keep Current Database</button>
+        <button type="button" class="btn-confirm-reject-animated" id="btnExecuteDatabaseRestore" style="background: linear-gradient(135deg, #DC2626 0%, #991B1B 100%);">
+          <span id="btnExecuteRestoreText">Yes, Restore Database</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Luxury Tooltip (Email & Data Hover Popover) -->
+  <div id="luxuryFloatingTooltip" class="luxury-floating-tooltip" style="display: none;">
+    <div class="tooltip-content-wrap">
+      <span class="tooltip-email-text" id="tooltipEmailText"></span>
+      <span class="tooltip-action-hint">Click to copy</span>
+    </div>
+    <div class="tooltip-arrow"></div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="admin-toast" id="adminToast">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--ca-gold)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    <span id="toastMessage">Action completed successfully.</span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/custom-select.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

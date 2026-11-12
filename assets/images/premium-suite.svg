@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550" width="100%" height="100%">
+  <defs>
+    <linearGradient id="suiteWhite" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f5f0e9"/>
+      <stop offset="100%" stop-color="#dfd6c8"/>
+    </linearGradient>
+    <linearGradient id="suiteDepth" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ded4c5"/>
+      <stop offset="100%" stop-color="#7e7060"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Wall Background -->
+  <rect width="800" height="550" fill="url(#suiteWhite)"/>
+
+  <!-- Outer Architectural Arch -->
+  <path d="M 60 550 L 60 280 C 60 110, 200 30, 400 30 C 600 30, 740 110, 740 280 L 740 550 Z" fill="#eee7dc"/>
+  <path d="M 90 550 L 90 290 C 90 140, 220 65, 400 65 C 580 65, 710 140, 710 290 L 710 550 Z" fill="url(#suiteDepth)"/>
+
+  <!-- Inner Corridor Archway & Garden -->
+  <path d="M 220 550 L 220 320 C 220 220, 290 160, 400 160 C 510 160, 580 220, 580 320 L 580 550 Z" fill="#29332d"/>
+  <rect x="270" y="270" width="260" height="280" fill="#202e23"/>
+
+  <!-- Polished floor -->
+  <polygon points="0,420 800,420 800,550 0,550" fill="#f0eae0" opacity="0.95"/>
+
+  <!-- Round Daybed / Lounge -->
+  <ellipse cx="260" cy="450" rx="90" ry="32" fill="#f8f4ec" stroke="#ded5c6" stroke-width="2"/>
+  <rect x="170" y="450" width="180" height="30" fill="#eae1d2" rx="4"/>
+
+  <!-- Label Badge -->
+  <g transform="translate(400, 500)">
+    <rect x="-140" y="-18" width="280" height="36" rx="18" fill="rgba(35, 32, 29, 0.85)" stroke="#bfa780" stroke-width="1.2"/>
+    <text x="0" y="5" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#e8dac5" text-anchor="middle" letter-spacing="2">
+      PREMIUM SUITE (800x550)
+    </text>
+  </g>
+</svg>

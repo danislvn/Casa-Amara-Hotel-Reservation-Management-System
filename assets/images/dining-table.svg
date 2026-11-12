@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 700" width="100%" height="100%">
+  <defs>
+    <linearGradient id="diningAmbience" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3d2b20"/>
+      <stop offset="60%" stop-color="#241a14"/>
+      <stop offset="100%" stop-color="#140f0c"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="700" fill="url(#diningAmbience)"/>
+
+  <!-- French tall arched window with drapery -->
+  <path d="M150 500 L 150 160 C 150 80, 220 30, 300 30 C 380 30, 450 80, 450 160 L 450 500 Z" fill="#4d382c" opacity="0.4"/>
+  <rect x="180" y="70" width="240" height="420" fill="#6d5543" opacity="0.2"/>
+
+  <!-- Warm Table Lamp & glow -->
+  <circle cx="430" cy="420" r="100" fill="#f8d59d" opacity="0.18"/>
+  <rect x="420" y="380" width="20" height="40" fill="#d9b685" rx="3"/>
+
+  <!-- Round Table with White Tablecloth -->
+  <ellipse cx="300" cy="550" rx="140" ry="50" fill="#fcf9f2"/>
+  <path d="M 160 550 L 440 550 L 410 680 L 190 680 Z" fill="#eae2d5"/>
+
+  <!-- Wine Glasses & candle -->
+  <ellipse cx="280" cy="535" rx="10" ry="4" fill="#a49382"/>
+  <line x1="280" y1="535" x2="280" y2="520" stroke="#fcf9f2" stroke-width="1.5"/>
+  <circle cx="310" cy="525" r="5" fill="#f3be7a"/>
+
+  <!-- Velvet Dining Chairs -->
+  <path d="M 140 540 C 140 480, 170 460, 210 460 L 220 540 Z" fill="#5c4535"/>
+  <path d="M 380 540 C 380 480, 410 460, 450 460 L 460 540 Z" fill="#69513e"/>
+
+  <!-- Label Badge -->
+  <g transform="translate(300, 640)">
+    <rect x="-130" y="-18" width="260" height="36" rx="18" fill="rgba(24, 20, 16, 0.85)" stroke="#bfa780" stroke-width="1"/>
+    <text x="0" y="5" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#e8dac5" text-anchor="middle" letter-spacing="2">
+      AMARA TABLE (600x700)
+    </text>
+  </g>
+</svg>

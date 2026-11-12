@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rooms &amp; Suites | Casa Amara Boutique Hotel</title>
+  <meta name="description" content="Four distinct room types at Casa Amara, each composed for comfort, calm, and a true sense of place.">
+  
+  <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       1. Top Header & Navigation
+       ========================================================================= -->
+  <header class="site-header" id="top">
+    <div class="header-container">
+      <!-- Monogram & Logo -->
+      <a href="index.html" class="brand-logo" aria-label="Casa Amara Home">
+        <div class="logo-circle">CA</div>
+        <div class="logo-text">
+          <span class="logo-title">Casa Amara</span>
+          <span class="logo-subtitle">BOUTIQUE HOTEL</span>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">The Hotel</a></li>
+          <li><a href="rooms.html" class="nav-link active">Rooms &amp; Suites</a></li>
+          <li><a href="index.html#amenities" class="nav-link">Amenities</a></li>
+          <li><a href="index.html#dining" class="nav-link">Dining</a></li>
+          <li><a href="index.html#reserve" class="nav-link">Manage booking</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Button -->
+      <div class="header-action">
+        <a href="booking.html" class="btn-primary">Book your stay</a>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <button class="mobile-toggle" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- =========================================================================
+         2. Hero Header: Rest, beautifully.
+         ========================================================================= -->
+    <section class="rooms-hero-wrapper">
+      <div class="container">
+        <span class="eyebrow-tag">ROOMS &amp; SUITES</span>
+        <h1 class="rooms-hero-headline">Rest, beautifully.</h1>
+        <p class="rooms-hero-subtitle">
+          Four distinct room types, all within Casa Amara and each composed for comfort, calm, and a true sense of place.
+        </p>
+
+        <!-- Availability Search Bar -->
+        <div class="availability-search-bar" role="search" aria-label="Room availability search">
+          <!-- Check-in -->
+          <div class="search-field-item">
+            <span class="search-field-label">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              CHECK-IN
+            </span>
+            <div class="search-field-val">
+              <input type="text" id="searchCheckin" value="10/27/2026" aria-label="Check in date" placeholder="MM/DD/YYYY">
+              <input type="date" id="searchCheckinPicker" class="native-date-hidden" tabindex="-1" aria-hidden="true">
+              <button type="button" class="search-calendar-btn" id="btnPickCheckin" aria-label="Open check-in date picker">
+                <svg class="search-field-icon-right" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Check-out -->
+          <div class="search-field-item">
+            <span class="search-field-label">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              CHECK-OUT
+            </span>
+            <div class="search-field-val">
+              <input type="text" id="searchCheckout" value="10/30/2026" aria-label="Check out date" placeholder="MM/DD/YYYY">
+              <input type="date" id="searchCheckoutPicker" class="native-date-hidden" tabindex="-1" aria-hidden="true">
+              <button type="button" class="search-calendar-btn" id="btnPickCheckout" aria-label="Open check-out date picker">
+                <svg class="search-field-icon-right" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Guests -->
+          <div class="search-field-item">
+            <span class="search-field-label">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              GUESTS
+            </span>
+            <div class="search-field-val custom-select-wrap">
+              <select id="searchGuests" aria-label="Number of guests">
+                <option value="1">1 Guest</option>
+                <option value="2" selected>2 Guests</option>
+                <option value="3">3 Guests</option>
+                <option value="4">4 Guests</option>
+                <option value="5">5 Guests</option>
+                <option value="6">6 Guests</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Hotel -->
+          <div class="search-field-item">
+            <span class="search-field-label">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2 18h20"></path><path d="M4 18V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10"></path></svg>
+              HOTEL
+            </span>
+            <div class="search-field-val">
+              <input type="text" value="Casa Amara" readonly aria-label="Hotel name">
+            </div>
+          </div>
+
+          <!-- Action Button -->
+          <div class="search-action-btn-wrapper">
+            <a href="booking.html" class="btn-primary" id="btnCheckAvailability">
+              Check availability &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         3. Rooms & Suites Catalog (2x2 Grid from Figma)
+         ========================================================================= -->
+    <section class="rooms-catalog-section">
+      <div class="container">
+        <div class="rooms-catalog-grid">
+          <!-- Room Card 1: Deluxe Room -->
+          <article class="room-card">
+            <div class="room-image-box">
+              <span class="room-badge">DELUXE ROOM</span>
+              <img src="assets/images/deluxe-room.jpg" alt="Deluxe Room with handcrafted headboard" loading="lazy">
+            </div>
+            <div class="room-content">
+              <div class="room-header">
+                <h2 class="room-title">Deluxe Room</h2>
+                <div class="room-price">₱8,200 <span>/ night</span></div>
+              </div>
+              <div class="room-meta">
+                <span class="room-meta-item">
+                  <svg class="meta-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                  Up to 2 guests
+                </span>
+                <span class="room-meta-sep">·</span>
+                <span class="room-meta-item">
+                  <svg class="meta-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4v16"></path><path d="M2 8h18a2 2 0 0 1 2 2v10"></path><path d="M2 17h20"></path><path d="M6 8v9"></path></svg>
+                  1 king bed
+                </span>
+              </div>
+              <div class="room-location-meta">
+                <span class="room-loc-badge">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                  Room 101 - 108
+                </span>
+                <span class="room-loc-badge">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line></svg>
+                  1st Floor (Garden Wing)
+                </span>
+              </div>
+              <p class="room-desc">
+                A serene garden-facing retreat with natural linens, handcrafted details, and a generous rainfall shower.
+              </p>
+              <ul class="room-features">
+                <li>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  King bed
+                </li>
+                <li>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Garden view
+                </li>
+                <li>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Rain shower
+                </li>
+              </ul>
+              <div class="room-actions">
+                <button type="button" class="btn-outline-dark btn-view-room" data-room-id="deluxe">View room</button>
+                <a href="booking.html?room=deluxe" class="btn-primary">Book now &rarr;</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Room Card 2: Executive Room -->
+          <article class="room-card">
+            <div class="room-image-box">
+              <span class="room-badge">EXECUTIVE ROOM</span>
+              <img src="assets/images/executive-room.jpg" alt="Executive Room with private terrace and soaking tub" loading="lazy">
+            </div>
+            <div class="room-content">
+              <div class="room-header">
+                <h2 class="room-title">Executive Room</h2>
+                <div class="room-price">₱11,500 <span>/ night</span></div>
+              </div>
+              <div class="room-meta">
+                <span class="room-meta-item">
+                  <svg class="meta-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                  Up to 3 guests
+                </span>
+                <span class="room-meta-sep">·</span>
+                <span class="room-meta-item">
+                  <svg class="meta-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4v16"></path><path d="M2 8h18a2 2 0 0 1 2 2v10"></path><path d="M2 17h20"></path><path d="M6 8v9"></path></svg>
+                  1 king bed and daybed
+                </span>
+              </div>
+              <div class="room-location-meta">
+                <span class="room-loc-badge">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                  Room 701 - 705
+                </span>
+                <span class="room-loc-badge">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line></svg>
+                  7th Floor (Skyline Wing)
+                </span>
+              </div>
+              <p class="room-desc">
+                An intimate room pairing a quiet private terrace with layered textures and a deep soaking tub.
+              </p>
+              <ul class="room-features">
+                <li>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Private terrace
+                </li>
+                <li>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  King bed
+                </li>
+                <li>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Soaking tub
+                </li>
+              </ul>
+              <div class="room-actions">
+                <button type="button" class="btn-outline-dark btn-view-room" data-room-id="executive">View room</button>
+                <a href="booking.html?room=executive" class="btn-primary">Book now &rarr;</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Room Card 3: Family Room -->
+          <article class="room-card">
+            <div class="room-image-box">
+              <span class="room-badge">FAMILY ROOM</span>
+              <img src="assets/images/family-room.jpg" alt="Family Room overlooking inner leafy courtyard" loading="lazy">
+            </div>
+            <div class="room-content">
+              <div class="room-header">
+                <h2 class="room-title">Family Room</h2>
+                <div class="room-price">₱9,800 <span>/ night</span></div>
+              </div>
+              <div class="room-meta">
+                <span class="room-meta-item">
+                  <svg class="meta-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                  Up to 5 guests
+                </span>
+                <span class="room-meta-sep">·</span>
+                <span class="room-meta-item">
+                  <svg class="meta-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4v16"></path><path d="M2 8h18a2 2 0 0 1 2 2v10"></path><path d="M2 17h20"></path><path d="M6 8v9"></path></svg>
+                  2 queen beds
+                </span>
+              </div>
+              <div class="room-location-meta">
+                <span class="room-loc-badge">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                  Room 401 - 408
+                </span>
+                <span class="room-loc-badge">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line></svg>
+                  4th Floor (Courtyard Wing)
+                </span>
+              </div>
+              <p class="room-desc">
+                An airy room made for families, with two queen beds and views over our leafy inner courtyard.
+              </p>
+              <ul class="room-features">
+                <li>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Two queen beds
+                </li>
+                <li>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Courtyard view
+                </li>
+                <li>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Breakfast
+                </li>
+              </ul>
+              <div class="room-actions">
+                <button type="button" class="btn-outline-dark btn-view-room" data-room-id="family">View room</button>
+                <a href="booking.html?room=family" class="btn-primary">Book now &rarr;</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Room Card 4: Premium Suite -->
+          <article class="room-card">
+            <div class="room-image-box">
+              <span class="room-badge">PREMIUM SUITE</span>
+              <img src="assets/images/premium-suite.jpg" alt="Premium Suite retreat with bespoke lounge" loading="lazy">
+            </div>
+            <div class="room-content">
+              <div class="room-header">
+                <h2 class="room-title">Premium Suite</h2>
+                <div class="room-price">₱14,500 <span>/ night</span></div>
+              </div>
+              <div class="room-meta">
+                <span class="room-meta-item">
+                  <svg class="meta-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                  Up to 5 guests
+                </span>
+                <span class="room-meta-sep">·</span>
+                <span class="room-meta-item">
+                  <svg class="meta-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4v16"></path><path d="M2 8h18a2 2 0 0 1 2 2v10"></path><path d="M2 17h20"></path><path d="M6 8v9"></path></svg>
+                  1 king bed and sofa bed
+                </span>
+              </div>
+              <div class="room-location-meta">
+                <span class="room-loc-badge">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                  Room 1001 - 1003
+                </span>
+                <span class="room-loc-badge">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line></svg>
+                  10th Floor (Penthouse Wing)
+                </span>
+              </div>
+              <p class="room-desc">
+                Our most spacious retreat, with a private lounge, bespoke furnishings, and thoughtful evening turndown.
+              </p>
+              <ul class="room-features">
+                <li>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Separate lounge
+                </li>
+                <li>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Soaking tub
+                </li>
+                <li>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Evening turndown
+                </li>
+              </ul>
+              <div class="room-actions">
+                <button type="button" class="btn-outline-dark btn-view-room" data-room-id="premium">View room</button>
+                <a href="booking.html?room=premium" class="btn-primary">Book now &rarr;</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       4. Modern Boutique Footer (Recessed Card with Kinetic Typography)
+       ========================================================================= -->
+  <footer class="site-footer-wrapper" id="footer">
+    <div class="footer-card">
+      <div class="footer-main-grid">
+        <!-- Left: Brand Logo & Title -->
+        <div class="footer-left-col">
+          <div class="footer-brand">
+            <div class="footer-logo-circle">CA</div>
+            <div class="footer-brand-text">
+              <span class="footer-brand-title">Casa Amara</span>
+              <span class="footer-brand-subtitle">BOUTIQUE HOTEL</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: 3 Nav Columns & Copyright Credit Note -->
+        <div class="footer-right-col">
+          <div class="footer-nav-columns">
+            <div>
+              <h4 class="footer-col-title">Hotel</h4>
+              <ul class="footer-link-list">
+                <li><a href="index.html">The Hotel</a></li>
+                <li><a href="rooms.html">Rooms &amp; Suites</a></li>
+                <li><a href="index.html#amenities">Amenities</a></li>
+                <li><a href="index.html#dining">Dining &amp; Bar</a></li>
+                <li><a href="rooms.html">Special Offers</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 class="footer-col-title">Experiences</h4>
+              <ul class="footer-link-list">
+                <li><a href="index.html#dining">Amara Table</a></li>
+                <li><a href="index.html#dining">The Garden Pool</a></li>
+                <li><a href="index.html#amenities">Wellness &amp; Spa</a></li>
+                <li><a href="index.html#reserve">Private Events</a></li>
+                <li><a href="index.html#reserve">Weddings</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 class="footer-col-title">About</h4>
+              <ul class="footer-link-list">
+                <li><a href="index.html#about">Our Story</a></li>
+                <li><a href="index.html#reserve">Contact Desk</a></li>
+                <li><a href="index.html#reserve">Location</a></li>
+                <li><a href="index.html">Privacy Policy</a></li>
+                <li><a href="index.html">Guest Terms</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="footer-copy-block">
+            <p class="footer-copyright">&copy; 2011 &ndash; 2026 Casa Amara Boutique Hotel</p>
+            <p class="footer-credit-note">
+              An independent 18-room sanctuary shaped by local craft, attentive hotel staff, and the quiet rhythm of tropical living. Every detail belongs to one thoughtful place.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Giant Display Text in Italic -->
+      <div class="giant-footer-title" aria-label="Casa Amara">
+        <div class="stretch-word">Casa</div>
+        <span class="stretch-space">&nbsp;</span>
+        <div class="stretch-word">Amara</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       5. View Room Detail Modal (Split 2-Column Luxury Modal - Exact Figma Spec)
+       ========================================================================= -->
+  <div class="view-room-modal-backdrop" id="viewRoomModal" aria-hidden="true" role="dialog">
+    <div class="view-room-modal-card">
+      <button type="button" class="view-room-modal-close" id="closeViewRoomModal" aria-label="Close modal">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <!-- Left: Full-bleed Room Photography -->
+      <div class="view-room-modal-media">
+        <img id="viewRoomModalImg" src="assets/images/deluxe-room.jpg" alt="Deluxe Room Interior">
+      </div>
+
+      <!-- Right: Detailed Information -->
+      <div class="view-room-modal-content">
+        <div class="view-room-modal-top">
+          <div class="view-room-tag" id="viewRoomModalTag">Deluxe room</div>
+          <h2 class="view-room-title" id="viewRoomModalTitle">Deluxe Room</h2>
+          <div class="room-location-meta" id="viewRoomModalLocation" style="margin-top: 0.35rem; margin-bottom: 0.85rem;">
+            <span class="room-loc-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+              Room 101 - 108
+            </span>
+            <span class="room-loc-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line></svg>
+              1st Floor (Garden Wing)
+            </span>
+          </div>
+          <p class="view-room-desc" id="viewRoomModalDesc">
+            A serene garden-facing retreat with natural linens, handcrafted details, and a generous rainfall shower.
+          </p>
+          
+          <hr class="view-room-divider">
+
+          <div class="view-room-specs" id="viewRoomModalSpecs">
+            Up to 2 guests · 1 king bed · 4 rooms in hotel inventory
+          </div>
+
+          <div class="view-room-features" id="viewRoomModalFeatures">
+            <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> King bed</span>
+            <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Garden view</span>
+            <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Rain shower</span>
+          </div>
+
+          <hr class="view-room-divider">
+        </div>
+
+        <div class="view-room-footer">
+          <div class="view-room-price-box">
+            <div class="view-room-price-val" id="viewRoomModalPrice">₱8,200</div>
+            <div class="view-room-price-sub">/ night</div>
+          </div>
+          <a href="booking.html?room=deluxe" class="view-room-btn-book" id="viewRoomModalBookBtn">
+            Book this room
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script src="js/custom-select.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

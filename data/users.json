@@ -1,0 +1,18 @@
+{
+  "manager": {
+    "role": "Manager",
+    "full_name": "Casa Amara Manager",
+    "email": "manager@casaamara.ph",
+    "status": "ACTIVE",
+    "last_signin": "Oct 20, 2026, 9:41 PM",
+    "password_hash": "290698401e58d12f22e8a4107f4e77c0240f5d306d991d5a7b39f010a968b168"
+  },
+  "admin": {
+    "role": "Admin",
+    "full_name": "Casa Amara Administrator",
+    "email": "admin@casaamara.ph",
+    "status": "ACTIVE",
+    "last_signin": "Never",
+    "password_hash": "290698401e58d12f22e8a4107f4e77c0240f5d306d991d5a7b39f010a968b168"
+  }
+}
