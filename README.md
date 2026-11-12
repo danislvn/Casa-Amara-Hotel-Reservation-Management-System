@@ -1,5 +1,5 @@
 # Casa Amara Boutique Hotel — Management System & Web Platform
-*Personal Project*
+*Finals Project in OOP, ITEC 104, and ITEC 105*
 
 A luxury boutique hotel web platform and Python Object-Oriented Hotel Reservation & Inventory Management desktop application.
 
@@ -96,5 +96,5 @@ python -m unittest discover -s tests -v
 ## Staff Login Credentials
 - **Username**: `admin`
 - **Password**: `casaamara2026`
-*(Also available: `staff` / `casaamara2026`)*
+*(Also available: `manager` / `casaamara2026`)*
 >>>>>>> 5bc2395 (feat: complete Casa Amara Boutique Hotel platform with web experience, admin portal, and Python OOP reservation system)
